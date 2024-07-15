@@ -19,7 +19,9 @@ struct HealthDataListView: View {
         List(0..<28) { i in
             HStack {
                 Text(Date(), format: .dateTime.month().day().year())
+                
                 Spacer()
+                
                 Text(10000, format: .number.precision(.fractionLength(metric == .steps ? 0 : 1)))
             }
         }
@@ -38,9 +40,12 @@ struct HealthDataListView: View {
         NavigationStack {
             Form {
                 DatePicker("Date", selection: $date, displayedComponents: .date)
+                
                 HStack {
                     Text(metric.title)
+                    
                     Spacer()
+                    
                     TextField("Value", text: $inputValue)
                         .multilineTextAlignment(.trailing)
                         .frame(width: 200)

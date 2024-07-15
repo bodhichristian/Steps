@@ -34,8 +34,8 @@ struct DashboardView: View {
                 VStack(spacing: 20) {
                     
                     Picker("Selected Stat", selection: $selectedState) {
-                        ForEach(HealthMetricContext.allCases) { metric in
-                            Text(metric.title)
+                        ForEach(HealthMetricContext.allCases) {
+                            Text($0.title)
                         }
                     }
                     .pickerStyle(.segmented)
@@ -73,7 +73,6 @@ struct DashboardView: View {
                             .foregroundStyle(Color(.secondarySystemBackground))
                     }
                     
-                    
                     // Averages Card
                     VStack(alignment: .leading) {
                         // Card Header
@@ -87,14 +86,12 @@ struct DashboardView: View {
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
-                            
                         }
                         .padding(.bottom, 12)
                         
                         // Card Body
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundStyle(.secondary)
-                        
                             .frame(height: 240)
                     }
                     .padding()
@@ -102,9 +99,7 @@ struct DashboardView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundStyle(Color(.secondarySystemBackground))
                     }
-                    
                 }
-                
             }
             .padding()
             .navigationTitle("Dashboard")
@@ -113,9 +108,7 @@ struct DashboardView: View {
             }
         }
         .tint(stepsSelected ? .pink : .indigo)
-    }
-    
-    
+    }   
 }
 
 #Preview {
