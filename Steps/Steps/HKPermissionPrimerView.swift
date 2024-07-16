@@ -11,9 +11,9 @@ import HealthKitUI
 struct HKPermissionPrimerView: View {
     @Environment(HealthKitService.self) var hkService
     @Environment(\.dismiss) var dismiss
-    @State private var requestingPermission = false
+    @State private var requestingPermission: Bool = false
     
-    var permissionPrimer: String = """
+    let permissionPrimer: String = """
     This app provides interactive charts to explore your step and weight data.
     
     You may securely add new data to Apple Health directly from this app.
