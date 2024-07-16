@@ -15,6 +15,7 @@
 		AA9251C92C4406EE003CDFA3 /* StepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251C82C4406EE003CDFA3 /* StepsUITests.swift */; };
 		AA9251CB2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251CA2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift */; };
 		AA9251D82C44B577003CDFA3 /* HealthDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */; };
+		AAB6833C2C46102F007FFB64 /* HKPermissionPrimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		AA9251C82C4406EE003CDFA3 /* StepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITests.swift; sourceTree = "<group>"; };
 		AA9251CA2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataListView.swift; sourceTree = "<group>"; };
+		AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKPermissionPrimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				AA9251AD2C4406ED003CDFA3 /* StepsApp.swift */,
 				AA9251AF2C4406ED003CDFA3 /* DashboardView.swift */,
+				AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */,
 				AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */,
 				AA9251B12C4406EE003CDFA3 /* Assets.xcassets */,
 				AA9251B32C4406EE003CDFA3 /* Preview Content */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9251D82C44B577003CDFA3 /* HealthDataListView.swift in Sources */,
+				AAB6833C2C46102F007FFB64 /* HKPermissionPrimerView.swift in Sources */,
 				AA9251B02C4406ED003CDFA3 /* DashboardView.swift in Sources */,
 				AA9251AE2C4406ED003CDFA3 /* StepsApp.swift in Sources */,
 			);
