@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct StepsApp: App {
+    let hkService = HealthKitService()
+    
     var body: some Scene {
         WindowGroup {
             DashboardView()
+                .environment(hkService)
         }
     }
 }
