@@ -24,6 +24,8 @@ enum HealthMetricContext: CaseIterable, Identifiable {
 struct DashboardView: View {
     
     @AppStorage("permissionPrimed") private var permissionPrimed = false
+    
+    @Environment(HealthKitService.self) var hkService
     @State private var showingPrimer = false
     @State private var selectedState: HealthMetricContext = .steps
     
@@ -105,7 +107,8 @@ struct DashboardView: View {
                 }
             }
             .padding()
-            .onAppear {
+            .task {
+                //await hkService.addSampleData()
                 // if user has not been primed, showingPrimer will be set to true
                 // and a permission priming sheet will be presented.
                 showingPrimer = !permissionPrimed

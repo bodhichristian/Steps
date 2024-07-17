@@ -22,30 +22,35 @@ struct HKPermissionPrimerView: View {
     """
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Image("appleHealth")
-                .resizable()
-                .frame(width: 80, height: 80)
-                .shadow(color: .gray.opacity(0.3), radius: 16)
-                .padding(.bottom)
+        ZStack {
+            BackgroundGradient()
             
-            Text("Apple Health Integration")
-                .font(.title2)
-                .fontWeight(.semibold)
-            
-            Text(permissionPrimer)
-                .foregroundStyle(.secondary)
-            
-            Button("Connect to Apple Health") {
-                requestingPermission = true
+            VStack(alignment: .leading) {
+                Image("appleHealth")
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .shadow(color: .gray.opacity(0.3), radius: 16)
+                    .padding(.bottom)
+                
+                Text("Apple Health Integration")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                
+                Text(permissionPrimer)
+                    .foregroundStyle(.secondary)
+                
+                Button("Connect to Apple Health") {
+                    requestingPermission = true
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.pink)
+                .frame(maxWidth: .infinity)
+                .padding(.top, 160)
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.pink)
-            .frame(maxWidth: .infinity)
-            .padding(.top, 160)
+            
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
         .interactiveDismissDisabled()
         .onAppear { permissionPrimed  = true }
         .healthDataAccessRequest(
