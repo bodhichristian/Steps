@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 enum HealthMetricContext: CaseIterable, Identifiable {
     case steps, weight
@@ -68,9 +69,15 @@ struct DashboardView: View {
                         .foregroundStyle(.secondary)
                         
                         // Card Body
-                        RoundedRectangle(cornerRadius: 12)
-                            .foregroundStyle(.secondary)
-                            .frame(height: 150)
+                        Chart {
+                            ForEach(hkService.stepData) { steps in
+                                BarMark(
+                                    x: .value("Date", steps.date, unit: .day),
+                                    y: .value("Steps", steps.value)
+                                )
+                            }
+                        }
+                        .frame(height: 150)
                     }
                     .padding()
                     .background {
@@ -108,7 +115,7 @@ struct DashboardView: View {
             }
             .padding()
             .task {
-
+                await hkService.fetchStepCount()
                 // if user has not been primed, showingPrimer will be set to true
                 // and a permission priming sheet will be presented.
                 showingPrimer = !permissionPrimed
