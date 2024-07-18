@@ -22,6 +22,11 @@ enum HealthMetricContext: CaseIterable, Identifiable {
 }
 
 struct DashboardView: View {
+    
+    @AppStorage("permissionPrimed") private var permissionPrimed = false
+    
+    @Environment(HealthKitService.self) var hkService
+    @State private var showingPrimer = false
     @State private var selectedState: HealthMetricContext = .steps
     
     var stepsSelected: Bool {
@@ -102,10 +107,22 @@ struct DashboardView: View {
                 }
             }
             .padding()
+            .task {
+
+                // if user has not been primed, showingPrimer will be set to true
+                // and a permission priming sheet will be presented.
+                showingPrimer = !permissionPrimed
+            }
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self) { metric in
                 HealthDataListView(metric: metric)
             }
+            .sheet(isPresented: $showingPrimer) {
+                // fetch health data
+            } content: {
+                HKPermissionPrimerView(permissionPrimed: $permissionPrimed)
+            }
+
         }
         .tint(stepsSelected ? .pink : .indigo)
     }   
@@ -113,4 +130,5 @@ struct DashboardView: View {
 
 #Preview {
     DashboardView()
+        .environment(HealthKitService())
 }
