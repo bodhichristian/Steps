@@ -3,22 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AA9251AE2C4406ED003CDFA3 /* StepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251AD2C4406ED003CDFA3 /* StepsApp.swift */; };
-		AA9251B02C4406ED003CDFA3 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251AF2C4406ED003CDFA3 /* DashboardView.swift */; };
 		AA9251B22C4406EE003CDFA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9251B12C4406EE003CDFA3 /* Assets.xcassets */; };
 		AA9251B52C4406EE003CDFA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9251B42C4406EE003CDFA3 /* Preview Assets.xcassets */; };
 		AA9251BF2C4406EE003CDFA3 /* StepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251BE2C4406EE003CDFA3 /* StepsTests.swift */; };
 		AA9251C92C4406EE003CDFA3 /* StepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251C82C4406EE003CDFA3 /* StepsUITests.swift */; };
 		AA9251CB2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251CA2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift */; };
-		AA9251D82C44B577003CDFA3 /* HealthDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */; };
-		AAB6833C2C46102F007FFB64 /* HKPermissionPrimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */; };
-		AAB683402C46189C007FFB64 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6833F2C46189C007FFB64 /* HealthKitService.swift */; };
-		AAB683422C475E29007FFB64 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB683412C475E29007FFB64 /* BackgroundGradient.swift */; };
-		AAB683442C4972DF007FFB64 /* HealthMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB683432C4972DF007FFB64 /* HealthMetric.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +35,6 @@
 /* Begin PBXFileReference section */
 		AA9251AA2C4406ED003CDFA3 /* Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9251AD2C4406ED003CDFA3 /* StepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsApp.swift; sourceTree = "<group>"; };
-		AA9251AF2C4406ED003CDFA3 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		AA9251B12C4406EE003CDFA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA9251B42C4406EE003CDFA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA9251BA2C4406EE003CDFA3 /* StepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,13 +42,56 @@
 		AA9251C42C4406EE003CDFA3 /* StepsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9251C82C4406EE003CDFA3 /* StepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITests.swift; sourceTree = "<group>"; };
 		AA9251CA2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataListView.swift; sourceTree = "<group>"; };
-		AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKPermissionPrimerView.swift; sourceTree = "<group>"; };
 		AAB6833D2C4616AA007FFB64 /* Steps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steps.entitlements; sourceTree = "<group>"; };
-		AAB6833F2C46189C007FFB64 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
-		AAB683412C475E29007FFB64 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
-		AAB683432C4972DF007FFB64 /* HealthMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetric.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AA8501CA2C650A0B00851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				HealthKitService.swift,
+			);
+			target = AA9251A92C4406ED003CDFA3 /* Steps */;
+		};
+		AA8501CB2C650A2700851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				StepBarChart.swift,
+			);
+			target = AA9251A92C4406ED003CDFA3 /* Steps */;
+		};
+		AA8501CC2C650A8D00851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				HealthMetric.swift,
+			);
+			target = AA9251A92C4406ED003CDFA3 /* Steps */;
+		};
+		AA8501CD2C650AA400851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DashboardView.swift,
+				HealthDataListView.swift,
+				HKPermissionPrimerView.swift,
+			);
+			target = AA9251A92C4406ED003CDFA3 /* Steps */;
+		};
+		AA8501CF2C650AD700851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BackgroundGradient.swift,
+			);
+			target = AA9251A92C4406ED003CDFA3 /* Steps */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA8501C52C65099600851349 /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CC2C650A8D00851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
+		AA8501C62C6509DF00851349 /* Screens */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CD2C650AA400851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Screens; sourceTree = "<group>"; };
+		AA8501C72C6509EF00851349 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CA2C650A0B00851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
+		AA8501C92C6509FC00851349 /* Charts */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CB2C650A2700851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Charts; sourceTree = "<group>"; };
+		AA8501CE2C650AC800851349 /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CF2C650AD700851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AA9251A72C4406ED003CDFA3 /* Frameworks */ = {
@@ -106,12 +142,11 @@
 			isa = PBXGroup;
 			children = (
 				AA9251AD2C4406ED003CDFA3 /* StepsApp.swift */,
-				AAB6833F2C46189C007FFB64 /* HealthKitService.swift */,
-				AA9251AF2C4406ED003CDFA3 /* DashboardView.swift */,
-				AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */,
-				AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */,
-				AAB683412C475E29007FFB64 /* BackgroundGradient.swift */,
-				AAB683432C4972DF007FFB64 /* HealthMetric.swift */,
+				AA8501C52C65099600851349 /* Model */,
+				AA8501C92C6509FC00851349 /* Charts */,
+				AA8501CE2C650AC800851349 /* Components */,
+				AA8501C62C6509DF00851349 /* Screens */,
+				AA8501C72C6509EF00851349 /* Services */,
 				AA9251B12C4406EE003CDFA3 /* Assets.xcassets */,
 				AAB6833D2C4616AA007FFB64 /* Steps.entitlements */,
 				AA9251B32C4406EE003CDFA3 /* Preview Content */,
@@ -274,13 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB683422C475E29007FFB64 /* BackgroundGradient.swift in Sources */,
-				AA9251D82C44B577003CDFA3 /* HealthDataListView.swift in Sources */,
-				AAB6833C2C46102F007FFB64 /* HKPermissionPrimerView.swift in Sources */,
-				AAB683402C46189C007FFB64 /* HealthKitService.swift in Sources */,
-				AA9251B02C4406ED003CDFA3 /* DashboardView.swift in Sources */,
 				AA9251AE2C4406ED003CDFA3 /* StepsApp.swift in Sources */,
-				AAB683442C4972DF007FFB64 /* HealthMetric.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
