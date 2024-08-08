@@ -56,6 +56,8 @@
 		AA8501CB2C650A2700851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ChartDataTypes.swift,
+				ChartMath.swift,
 				StepBarChart.swift,
 			);
 			target = AA9251A92C4406ED003CDFA3 /* Steps */;
@@ -84,6 +86,13 @@
 			);
 			target = AA9251A92C4406ED003CDFA3 /* Steps */;
 		};
+		AA8501DA2C65294500851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Date+Ext.swift",
+			);
+			target = AA9251A92C4406ED003CDFA3 /* Steps */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -92,6 +101,7 @@
 		AA8501C72C6509EF00851349 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CA2C650A0B00851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
 		AA8501C92C6509FC00851349 /* Charts */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CB2C650A2700851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Charts; sourceTree = "<group>"; };
 		AA8501CE2C650AC800851349 /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501CF2C650AD700851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+		AA8501D72C6528EA00851349 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA8501DA2C65294500851349 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +158,7 @@
 				AA8501CE2C650AC800851349 /* Components */,
 				AA8501C62C6509DF00851349 /* Screens */,
 				AA8501C72C6509EF00851349 /* Services */,
+				AA8501D72C6528EA00851349 /* Extensions */,
 				AA9251B12C4406EE003CDFA3 /* Assets.xcassets */,
 				AAB6833D2C4616AA007FFB64 /* Steps.entitlements */,
 				AA9251B32C4406EE003CDFA3 /* Preview Content */,
@@ -194,6 +205,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AA34EB1F2C653C10005E9E48 /* PBXTargetDependency */,
 			);
 			name = Steps;
 			productName = Steps;
@@ -268,6 +280,9 @@
 				Base,
 			);
 			mainGroup = AA9251A12C4406ED003CDFA3;
+			packageReferences = (
+				AA8501DB2C652B9200851349 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = AA9251AB2C4406ED003CDFA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -334,6 +349,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AA34EB1F2C653C10005E9E48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = AA34EB1E2C653C10005E9E48 /* Algorithms */;
+		};
 		AA9251BC2C4406EE003CDFA3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA9251A92C4406ED003CDFA3 /* Steps */;
@@ -485,6 +504,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,6 +537,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -642,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA8501DB2C652B9200851349 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA34EB1E2C653C10005E9E48 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA8501DB2C652B9200851349 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA9251A22C4406ED003CDFA3 /* Project object */;
 }
