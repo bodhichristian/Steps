@@ -64,6 +64,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				HealthMetric.swift,
+				HealthMetricContext.swift,
 			);
 			target = AA9251A92C4406ED003CDFA3 /* Steps */;
 		};

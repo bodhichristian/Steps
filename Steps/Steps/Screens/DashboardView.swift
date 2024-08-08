@@ -8,22 +8,7 @@
 import SwiftUI
 import Charts
 
-enum HealthMetricContext: CaseIterable, Identifiable {
-    case steps, weight
-    var id: Self { self }
-    
-    var title: String {
-        switch self {
-        case .steps:
-            "Steps"
-        case .weight:
-            "Weight"
-        }
-    }
-}
-
 struct DashboardView: View {
-    
     @AppStorage("permissionPrimed") private var permissionPrimed = false
     
     @Environment(HealthKitService.self) var hkService
