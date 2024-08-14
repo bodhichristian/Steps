@@ -3,74 +3,90 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA9251AE2C4406ED003CDFA3 /* StepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251AD2C4406ED003CDFA3 /* StepsApp.swift */; };
-		AA9251B02C4406ED003CDFA3 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251AF2C4406ED003CDFA3 /* DashboardView.swift */; };
-		AA9251B22C4406EE003CDFA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9251B12C4406EE003CDFA3 /* Assets.xcassets */; };
-		AA9251B52C4406EE003CDFA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9251B42C4406EE003CDFA3 /* Preview Assets.xcassets */; };
-		AA9251BF2C4406EE003CDFA3 /* StepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251BE2C4406EE003CDFA3 /* StepsTests.swift */; };
-		AA9251C92C4406EE003CDFA3 /* StepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251C82C4406EE003CDFA3 /* StepsUITests.swift */; };
-		AA9251CB2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251CA2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift */; };
-		AA9251D82C44B577003CDFA3 /* HealthDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */; };
-		AAB6833C2C46102F007FFB64 /* HKPermissionPrimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */; };
-		AAB683402C46189C007FFB64 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6833F2C46189C007FFB64 /* HealthKitService.swift */; };
-		AAB683422C475E29007FFB64 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB683412C475E29007FFB64 /* BackgroundGradient.swift */; };
+		AA1DB0452C65431200C41F37 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AA1DB0442C65431200C41F37 /* Algorithms */; };
+		AA2511A22C6D018B00EC5824 /* ChartDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */; };
+		AA2511A32C6D019200EC5824 /* ChartMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25119B2C6D011D00EC5824 /* ChartMath.swift */; };
+		AA2511A42C6D019200EC5824 /* StepBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25119C2C6D011D00EC5824 /* StepBarChart.swift */; };
+		AA2511AB2C6D01A100EC5824 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25118F2C6D011D00EC5824 /* Date+Ext.swift */; };
+		AA2511AC2C6D01A100EC5824 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25119E2C6D011D00EC5824 /* HealthKitService.swift */; };
+		AA2511AD2C6D01A100EC5824 /* HealthMetricContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511922C6D011D00EC5824 /* HealthMetricContext.swift */; };
+		AA2511AE2C6D01A100EC5824 /* HKPermissionPrimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511962C6D011D00EC5824 /* HKPermissionPrimerView.swift */; };
+		AA2511AF2C6D01A100EC5824 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511942C6D011D00EC5824 /* DashboardView.swift */; };
+		AA2511B02C6D01A100EC5824 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511982C6D011D00EC5824 /* BackgroundGradient.swift */; };
+		AA2511B12C6D01A100EC5824 /* HealthDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511952C6D011D00EC5824 /* HealthDataListView.swift */; };
+		AA2511B22C6D01A100EC5824 /* HealthMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511912C6D011D00EC5824 /* HealthMetric.swift */; };
+		AAD46E922C654185005F7B8A /* StepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46E912C654185005F7B8A /* StepsApp.swift */; };
+		AAD46E962C654186005F7B8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD46E952C654186005F7B8A /* Assets.xcassets */; };
+		AAD46E992C654186005F7B8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD46E982C654186005F7B8A /* Preview Assets.xcassets */; };
+		AAD46EA32C654187005F7B8A /* StepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EA22C654187005F7B8A /* StepsTests.swift */; };
+		AAD46EAD2C654187005F7B8A /* StepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EAC2C654187005F7B8A /* StepsUITests.swift */; };
+		AAD46EAF2C654187005F7B8A /* StepsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */; };
+		AAFC01F92C6D04B4002A2820 /* StepPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AA9251BB2C4406EE003CDFA3 /* PBXContainerItemProxy */ = {
+		AAD46E9F2C654187005F7B8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA9251A22C4406ED003CDFA3 /* Project object */;
+			containerPortal = AAD46E862C654185005F7B8A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AA9251A92C4406ED003CDFA3;
+			remoteGlobalIDString = AAD46E8D2C654185005F7B8A;
 			remoteInfo = Steps;
 		};
-		AA9251C52C4406EE003CDFA3 /* PBXContainerItemProxy */ = {
+		AAD46EA92C654187005F7B8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA9251A22C4406ED003CDFA3 /* Project object */;
+			containerPortal = AAD46E862C654185005F7B8A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AA9251A92C4406ED003CDFA3;
+			remoteGlobalIDString = AAD46E8D2C654185005F7B8A;
 			remoteInfo = Steps;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA9251AA2C4406ED003CDFA3 /* Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA9251AD2C4406ED003CDFA3 /* StepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsApp.swift; sourceTree = "<group>"; };
-		AA9251AF2C4406ED003CDFA3 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		AA9251B12C4406EE003CDFA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA9251B42C4406EE003CDFA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AA9251BA2C4406EE003CDFA3 /* StepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA9251BE2C4406EE003CDFA3 /* StepsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsTests.swift; sourceTree = "<group>"; };
-		AA9251C42C4406EE003CDFA3 /* StepsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA9251C82C4406EE003CDFA3 /* StepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITests.swift; sourceTree = "<group>"; };
-		AA9251CA2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataListView.swift; sourceTree = "<group>"; };
-		AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKPermissionPrimerView.swift; sourceTree = "<group>"; };
-		AAB6833D2C4616AA007FFB64 /* Steps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steps.entitlements; sourceTree = "<group>"; };
-		AAB6833F2C46189C007FFB64 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
-		AAB683412C475E29007FFB64 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
+		AA25118F2C6D011D00EC5824 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		AA2511912C6D011D00EC5824 /* HealthMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetric.swift; sourceTree = "<group>"; };
+		AA2511922C6D011D00EC5824 /* HealthMetricContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricContext.swift; sourceTree = "<group>"; };
+		AA2511942C6D011D00EC5824 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		AA2511952C6D011D00EC5824 /* HealthDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataListView.swift; sourceTree = "<group>"; };
+		AA2511962C6D011D00EC5824 /* HKPermissionPrimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKPermissionPrimerView.swift; sourceTree = "<group>"; };
+		AA2511982C6D011D00EC5824 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
+		AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataTypes.swift; sourceTree = "<group>"; };
+		AA25119B2C6D011D00EC5824 /* ChartMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMath.swift; sourceTree = "<group>"; };
+		AA25119C2C6D011D00EC5824 /* StepBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBarChart.swift; sourceTree = "<group>"; };
+		AA25119E2C6D011D00EC5824 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
+		AA2511B32C6D027100EC5824 /* Steps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steps.entitlements; sourceTree = "<group>"; };
+		AAD46E8E2C654185005F7B8A /* Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD46E912C654185005F7B8A /* StepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsApp.swift; sourceTree = "<group>"; };
+		AAD46E952C654186005F7B8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAD46E982C654186005F7B8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AAD46E9E2C654187005F7B8A /* StepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD46EA22C654187005F7B8A /* StepsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsTests.swift; sourceTree = "<group>"; };
+		AAD46EA82C654187005F7B8A /* StepsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD46EAC2C654187005F7B8A /* StepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITests.swift; sourceTree = "<group>"; };
+		AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AA9251A72C4406ED003CDFA3 /* Frameworks */ = {
+		AAD46E8B2C654185005F7B8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA1DB0452C65431200C41F37 /* Algorithms in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD46E9B2C654187005F7B8A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA9251B72C4406EE003CDFA3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AA9251C12C4406EE003CDFA3 /* Frameworks */ = {
+		AAD46EA52C654187005F7B8A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,63 +96,126 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA9251A12C4406ED003CDFA3 = {
+		AA1DB0432C65431200C41F37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA9251AC2C4406ED003CDFA3 /* Steps */,
-				AA9251BD2C4406EE003CDFA3 /* StepsTests */,
-				AA9251C72C4406EE003CDFA3 /* StepsUITests */,
-				AA9251AB2C4406ED003CDFA3 /* Products */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA2511902C6D011D00EC5824 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA25118F2C6D011D00EC5824 /* Date+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AA2511932C6D011D00EC5824 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA2511912C6D011D00EC5824 /* HealthMetric.swift */,
+				AA2511922C6D011D00EC5824 /* HealthMetricContext.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AA2511972C6D011D00EC5824 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AA2511942C6D011D00EC5824 /* DashboardView.swift */,
+				AA2511952C6D011D00EC5824 /* HealthDataListView.swift */,
+				AA2511962C6D011D00EC5824 /* HKPermissionPrimerView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		AA2511992C6D011D00EC5824 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AA2511982C6D011D00EC5824 /* BackgroundGradient.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AA25119D2C6D011D00EC5824 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */,
+				AA25119B2C6D011D00EC5824 /* ChartMath.swift */,
+				AA25119C2C6D011D00EC5824 /* StepBarChart.swift */,
+				AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		AA25119F2C6D011D00EC5824 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA25119E2C6D011D00EC5824 /* HealthKitService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AAD46E852C654185005F7B8A = {
+			isa = PBXGroup;
+			children = (
+				AAD46E902C654185005F7B8A /* Steps */,
+				AAD46EA12C654187005F7B8A /* StepsTests */,
+				AAD46EAB2C654187005F7B8A /* StepsUITests */,
+				AAD46E8F2C654185005F7B8A /* Products */,
+				AA1DB0432C65431200C41F37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		AA9251AB2C4406ED003CDFA3 /* Products */ = {
+		AAD46E8F2C654185005F7B8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA9251AA2C4406ED003CDFA3 /* Steps.app */,
-				AA9251BA2C4406EE003CDFA3 /* StepsTests.xctest */,
-				AA9251C42C4406EE003CDFA3 /* StepsUITests.xctest */,
+				AAD46E8E2C654185005F7B8A /* Steps.app */,
+				AAD46E9E2C654187005F7B8A /* StepsTests.xctest */,
+				AAD46EA82C654187005F7B8A /* StepsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AA9251AC2C4406ED003CDFA3 /* Steps */ = {
+		AAD46E902C654185005F7B8A /* Steps */ = {
 			isa = PBXGroup;
 			children = (
-				AA9251AD2C4406ED003CDFA3 /* StepsApp.swift */,
-				AAB6833F2C46189C007FFB64 /* HealthKitService.swift */,
-				AA9251AF2C4406ED003CDFA3 /* DashboardView.swift */,
-				AAB6833B2C46102F007FFB64 /* HKPermissionPrimerView.swift */,
-				AA9251D72C44B577003CDFA3 /* HealthDataListView.swift */,
-				AAB683412C475E29007FFB64 /* BackgroundGradient.swift */,
-				AA9251B12C4406EE003CDFA3 /* Assets.xcassets */,
-				AAB6833D2C4616AA007FFB64 /* Steps.entitlements */,
-				AA9251B32C4406EE003CDFA3 /* Preview Content */,
+				AA2511B32C6D027100EC5824 /* Steps.entitlements */,
+				AAD46E912C654185005F7B8A /* StepsApp.swift */,
+				AA25119D2C6D011D00EC5824 /* Charts */,
+				AA2511992C6D011D00EC5824 /* Components */,
+				AA2511902C6D011D00EC5824 /* Extensions */,
+				AA2511932C6D011D00EC5824 /* Model */,
+				AA2511972C6D011D00EC5824 /* Screens */,
+				AA25119F2C6D011D00EC5824 /* Services */,
+				AAD46E952C654186005F7B8A /* Assets.xcassets */,
+				AAD46E972C654186005F7B8A /* Preview Content */,
 			);
 			path = Steps;
 			sourceTree = "<group>";
 		};
-		AA9251B32C4406EE003CDFA3 /* Preview Content */ = {
+		AAD46E972C654186005F7B8A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				AA9251B42C4406EE003CDFA3 /* Preview Assets.xcassets */,
+				AAD46E982C654186005F7B8A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AA9251BD2C4406EE003CDFA3 /* StepsTests */ = {
+		AAD46EA12C654187005F7B8A /* StepsTests */ = {
 			isa = PBXGroup;
 			children = (
-				AA9251BE2C4406EE003CDFA3 /* StepsTests.swift */,
+				AAD46EA22C654187005F7B8A /* StepsTests.swift */,
 			);
 			path = StepsTests;
 			sourceTree = "<group>";
 		};
-		AA9251C72C4406EE003CDFA3 /* StepsUITests */ = {
+		AAD46EAB2C654187005F7B8A /* StepsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AA9251C82C4406EE003CDFA3 /* StepsUITests.swift */,
-				AA9251CA2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift */,
+				AAD46EAC2C654187005F7B8A /* StepsUITests.swift */,
+				AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */,
 			);
 			path = StepsUITests;
 			sourceTree = "<group>";
@@ -144,120 +223,126 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA9251A92C4406ED003CDFA3 /* Steps */ = {
+		AAD46E8D2C654185005F7B8A /* Steps */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9251CE2C4406EE003CDFA3 /* Build configuration list for PBXNativeTarget "Steps" */;
+			buildConfigurationList = AAD46EB22C654187005F7B8A /* Build configuration list for PBXNativeTarget "Steps" */;
 			buildPhases = (
-				AA9251A62C4406ED003CDFA3 /* Sources */,
-				AA9251A72C4406ED003CDFA3 /* Frameworks */,
-				AA9251A82C4406ED003CDFA3 /* Resources */,
+				AAD46E8A2C654185005F7B8A /* Sources */,
+				AAD46E8B2C654185005F7B8A /* Frameworks */,
+				AAD46E8C2C654185005F7B8A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Steps;
+			packageProductDependencies = (
+				AA1DB0442C65431200C41F37 /* Algorithms */,
+			);
 			productName = Steps;
-			productReference = AA9251AA2C4406ED003CDFA3 /* Steps.app */;
+			productReference = AAD46E8E2C654185005F7B8A /* Steps.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA9251B92C4406EE003CDFA3 /* StepsTests */ = {
+		AAD46E9D2C654187005F7B8A /* StepsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9251D12C4406EE003CDFA3 /* Build configuration list for PBXNativeTarget "StepsTests" */;
+			buildConfigurationList = AAD46EB52C654187005F7B8A /* Build configuration list for PBXNativeTarget "StepsTests" */;
 			buildPhases = (
-				AA9251B62C4406EE003CDFA3 /* Sources */,
-				AA9251B72C4406EE003CDFA3 /* Frameworks */,
-				AA9251B82C4406EE003CDFA3 /* Resources */,
+				AAD46E9A2C654187005F7B8A /* Sources */,
+				AAD46E9B2C654187005F7B8A /* Frameworks */,
+				AAD46E9C2C654187005F7B8A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AA9251BC2C4406EE003CDFA3 /* PBXTargetDependency */,
+				AAD46EA02C654187005F7B8A /* PBXTargetDependency */,
 			);
 			name = StepsTests;
 			productName = StepsTests;
-			productReference = AA9251BA2C4406EE003CDFA3 /* StepsTests.xctest */;
+			productReference = AAD46E9E2C654187005F7B8A /* StepsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AA9251C32C4406EE003CDFA3 /* StepsUITests */ = {
+		AAD46EA72C654187005F7B8A /* StepsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9251D42C4406EE003CDFA3 /* Build configuration list for PBXNativeTarget "StepsUITests" */;
+			buildConfigurationList = AAD46EB82C654187005F7B8A /* Build configuration list for PBXNativeTarget "StepsUITests" */;
 			buildPhases = (
-				AA9251C02C4406EE003CDFA3 /* Sources */,
-				AA9251C12C4406EE003CDFA3 /* Frameworks */,
-				AA9251C22C4406EE003CDFA3 /* Resources */,
+				AAD46EA42C654187005F7B8A /* Sources */,
+				AAD46EA52C654187005F7B8A /* Frameworks */,
+				AAD46EA62C654187005F7B8A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AA9251C62C4406EE003CDFA3 /* PBXTargetDependency */,
+				AAD46EAA2C654187005F7B8A /* PBXTargetDependency */,
 			);
 			name = StepsUITests;
 			productName = StepsUITests;
-			productReference = AA9251C42C4406EE003CDFA3 /* StepsUITests.xctest */;
+			productReference = AAD46EA82C654187005F7B8A /* StepsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AA9251A22C4406ED003CDFA3 /* Project object */ = {
+		AAD46E862C654185005F7B8A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					AA9251A92C4406ED003CDFA3 = {
-						CreatedOnToolsVersion = 16.0;
+					AAD46E8D2C654185005F7B8A = {
+						CreatedOnToolsVersion = 15.4;
 					};
-					AA9251B92C4406EE003CDFA3 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = AA9251A92C4406ED003CDFA3;
+					AAD46E9D2C654187005F7B8A = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = AAD46E8D2C654185005F7B8A;
 					};
-					AA9251C32C4406EE003CDFA3 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = AA9251A92C4406ED003CDFA3;
+					AAD46EA72C654187005F7B8A = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = AAD46E8D2C654185005F7B8A;
 					};
 				};
 			};
-			buildConfigurationList = AA9251A52C4406ED003CDFA3 /* Build configuration list for PBXProject "Steps" */;
-			compatibilityVersion = "Xcode 15.0";
+			buildConfigurationList = AAD46E892C654185005F7B8A /* Build configuration list for PBXProject "Steps" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = AA9251A12C4406ED003CDFA3;
-			productRefGroup = AA9251AB2C4406ED003CDFA3 /* Products */;
+			mainGroup = AAD46E852C654185005F7B8A;
+			packageReferences = (
+				AA1DB0422C6542DA00C41F37 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
+			productRefGroup = AAD46E8F2C654185005F7B8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA9251A92C4406ED003CDFA3 /* Steps */,
-				AA9251B92C4406EE003CDFA3 /* StepsTests */,
-				AA9251C32C4406EE003CDFA3 /* StepsUITests */,
+				AAD46E8D2C654185005F7B8A /* Steps */,
+				AAD46E9D2C654187005F7B8A /* StepsTests */,
+				AAD46EA72C654187005F7B8A /* StepsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AA9251A82C4406ED003CDFA3 /* Resources */ = {
+		AAD46E8C2C654185005F7B8A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA9251B52C4406EE003CDFA3 /* Preview Assets.xcassets in Resources */,
-				AA9251B22C4406EE003CDFA3 /* Assets.xcassets in Resources */,
+				AAD46E992C654186005F7B8A /* Preview Assets.xcassets in Resources */,
+				AAD46E962C654186005F7B8A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA9251B82C4406EE003CDFA3 /* Resources */ = {
+		AAD46E9C2C654187005F7B8A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA9251C22C4406EE003CDFA3 /* Resources */ = {
+		AAD46EA62C654187005F7B8A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,53 +352,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AA9251A62C4406ED003CDFA3 /* Sources */ = {
+		AAD46E8A2C654185005F7B8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB683422C475E29007FFB64 /* BackgroundGradient.swift in Sources */,
-				AA9251D82C44B577003CDFA3 /* HealthDataListView.swift in Sources */,
-				AAB6833C2C46102F007FFB64 /* HKPermissionPrimerView.swift in Sources */,
-				AAB683402C46189C007FFB64 /* HealthKitService.swift in Sources */,
-				AA9251B02C4406ED003CDFA3 /* DashboardView.swift in Sources */,
-				AA9251AE2C4406ED003CDFA3 /* StepsApp.swift in Sources */,
+				AA2511AB2C6D01A100EC5824 /* Date+Ext.swift in Sources */,
+				AA2511AC2C6D01A100EC5824 /* HealthKitService.swift in Sources */,
+				AA2511AD2C6D01A100EC5824 /* HealthMetricContext.swift in Sources */,
+				AA2511AE2C6D01A100EC5824 /* HKPermissionPrimerView.swift in Sources */,
+				AA2511AF2C6D01A100EC5824 /* DashboardView.swift in Sources */,
+				AA2511B02C6D01A100EC5824 /* BackgroundGradient.swift in Sources */,
+				AA2511B12C6D01A100EC5824 /* HealthDataListView.swift in Sources */,
+				AA2511B22C6D01A100EC5824 /* HealthMetric.swift in Sources */,
+				AA2511A32C6D019200EC5824 /* ChartMath.swift in Sources */,
+				AA2511A42C6D019200EC5824 /* StepBarChart.swift in Sources */,
+				AA2511A22C6D018B00EC5824 /* ChartDataTypes.swift in Sources */,
+				AAFC01F92C6D04B4002A2820 /* StepPieChart.swift in Sources */,
+				AAD46E922C654185005F7B8A /* StepsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA9251B62C4406EE003CDFA3 /* Sources */ = {
+		AAD46E9A2C654187005F7B8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA9251BF2C4406EE003CDFA3 /* StepsTests.swift in Sources */,
+				AAD46EA32C654187005F7B8A /* StepsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA9251C02C4406EE003CDFA3 /* Sources */ = {
+		AAD46EA42C654187005F7B8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA9251CB2C4406EE003CDFA3 /* StepsUITestsLaunchTests.swift in Sources */,
-				AA9251C92C4406EE003CDFA3 /* StepsUITests.swift in Sources */,
+				AAD46EAF2C654187005F7B8A /* StepsUITestsLaunchTests.swift in Sources */,
+				AAD46EAD2C654187005F7B8A /* StepsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AA9251BC2C4406EE003CDFA3 /* PBXTargetDependency */ = {
+		AAD46EA02C654187005F7B8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA9251A92C4406ED003CDFA3 /* Steps */;
-			targetProxy = AA9251BB2C4406EE003CDFA3 /* PBXContainerItemProxy */;
+			target = AAD46E8D2C654185005F7B8A /* Steps */;
+			targetProxy = AAD46E9F2C654187005F7B8A /* PBXContainerItemProxy */;
 		};
-		AA9251C62C4406EE003CDFA3 /* PBXTargetDependency */ = {
+		AAD46EAA2C654187005F7B8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA9251A92C4406ED003CDFA3 /* Steps */;
-			targetProxy = AA9251C52C4406EE003CDFA3 /* PBXContainerItemProxy */;
+			target = AAD46E8D2C654185005F7B8A /* Steps */;
+			targetProxy = AAD46EA92C654187005F7B8A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		AA9251CC2C4406EE003CDFA3 /* Debug */ = {
+		AAD46EB02C654187005F7B8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -365,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -376,7 +468,7 @@
 			};
 			name = Debug;
 		};
-		AA9251CD2C4406EE003CDFA3 /* Release */ = {
+		AAD46EB12C654187005F7B8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -422,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -432,7 +524,7 @@
 			};
 			name = Release;
 		};
-		AA9251CF2C4406EE003CDFA3 /* Debug */ = {
+		AAD46EB32C654187005F7B8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -444,8 +536,10 @@
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to display data from Apple Health.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to add data to Apple Health.";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow Steps to access Health data.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow Steps to add data to Health.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -464,7 +558,7 @@
 			};
 			name = Debug;
 		};
-		AA9251D02C4406EE003CDFA3 /* Release */ = {
+		AAD46EB42C654187005F7B8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -476,8 +570,10 @@
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to display data from Apple Health.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to add data to Apple Health.";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow Steps to access Health data.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow Steps to add data to Health.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -496,15 +592,16 @@
 			};
 			name = Release;
 		};
-		AA9251D22C4406EE003CDFA3 /* Debug */ = {
+		AAD46EB62C654187005F7B8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StepsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,15 +612,16 @@
 			};
 			name = Debug;
 		};
-		AA9251D32C4406EE003CDFA3 /* Release */ = {
+		AAD46EB72C654187005F7B8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StepsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -534,9 +632,10 @@
 			};
 			name = Release;
 		};
-		AA9251D52C4406EE003CDFA3 /* Debug */ = {
+		AAD46EB92C654187005F7B8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
@@ -551,9 +650,10 @@
 			};
 			name = Debug;
 		};
-		AA9251D62C4406EE003CDFA3 /* Release */ = {
+		AAD46EBA2C654187005F7B8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
@@ -571,43 +671,62 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA9251A52C4406ED003CDFA3 /* Build configuration list for PBXProject "Steps" */ = {
+		AAD46E892C654185005F7B8A /* Build configuration list for PBXProject "Steps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA9251CC2C4406EE003CDFA3 /* Debug */,
-				AA9251CD2C4406EE003CDFA3 /* Release */,
+				AAD46EB02C654187005F7B8A /* Debug */,
+				AAD46EB12C654187005F7B8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9251CE2C4406EE003CDFA3 /* Build configuration list for PBXNativeTarget "Steps" */ = {
+		AAD46EB22C654187005F7B8A /* Build configuration list for PBXNativeTarget "Steps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA9251CF2C4406EE003CDFA3 /* Debug */,
-				AA9251D02C4406EE003CDFA3 /* Release */,
+				AAD46EB32C654187005F7B8A /* Debug */,
+				AAD46EB42C654187005F7B8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9251D12C4406EE003CDFA3 /* Build configuration list for PBXNativeTarget "StepsTests" */ = {
+		AAD46EB52C654187005F7B8A /* Build configuration list for PBXNativeTarget "StepsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA9251D22C4406EE003CDFA3 /* Debug */,
-				AA9251D32C4406EE003CDFA3 /* Release */,
+				AAD46EB62C654187005F7B8A /* Debug */,
+				AAD46EB72C654187005F7B8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9251D42C4406EE003CDFA3 /* Build configuration list for PBXNativeTarget "StepsUITests" */ = {
+		AAD46EB82C654187005F7B8A /* Build configuration list for PBXNativeTarget "StepsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA9251D52C4406EE003CDFA3 /* Debug */,
-				AA9251D62C4406EE003CDFA3 /* Release */,
+				AAD46EB92C654187005F7B8A /* Debug */,
+				AAD46EBA2C654187005F7B8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA1DB0422C6542DA00C41F37 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA1DB0442C65431200C41F37 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA1DB0422C6542DA00C41F37 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = AA9251A22C4406ED003CDFA3 /* Project object */;
+	rootObject = AAD46E862C654185005F7B8A /* Project object */;
 }

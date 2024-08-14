@@ -2,7 +2,7 @@
 //  StepsUITestsLaunchTests.swift
 //  StepsUITests
 //
-//  Created by christian on 7/14/24.
+//  Created by christian on 8/8/24.
 //
 
 import XCTest
@@ -17,7 +17,6 @@ final class StepsUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    @MainActor
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()

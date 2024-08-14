@@ -16,6 +16,9 @@ class HealthKitService {
     
     let types: Set = [HKQuantityType(.stepCount), HKQuantityType(.bodyMass)]
     
+    var stepData: [HealthMetric] = []
+    var weightData: [HealthMetric] = []
+    
     func fetchStepCount() async {
         let calendar = Calendar(identifier: .gregorian)
         let today = calendar.startOfDay(for: .now)
@@ -32,7 +35,15 @@ class HealthKitService {
             intervalComponents: .init(day: 1)
         )
         
-        let stepCounts = try! await stepsQuery.result(for: store)
+        do {
+            let stepCounts = try await stepsQuery.result(for: store)
+            
+            stepData = stepCounts.statistics().map {
+                .init(date: $0.startDate, value: $0.sumQuantity()?.doubleValue(for: .count()) ?? 0)
+            }
+        } catch {
+            // handle error
+        }
     }
     
     func fetchWeights() async {
@@ -51,29 +62,37 @@ class HealthKitService {
             intervalComponents: .init(day: 1)
         )
         
-        let weights = try! await weightQuery.result(for: store)
+        do {
+            let weights = try await weightQuery.result(for: store)
+            
+            weightData = weights.statistics().map {
+                .init(date: $0.startDate, value: $0.mostRecentQuantity()?.doubleValue(for: .pound()) ?? 0)
+            }
+        } catch {
+            // handle error
+        }
     }
     
     
     
-    //    func addSampleData() async {
-    //        var sampleData: [HKQuantitySample] = []
-    //        
-    //        for i in 0...28 {
-    //            let stepQuantity = HKQuantity(unit: .count(), doubleValue: .random(in: 4_000...20_000))
-    //            let weightQuantity = HKQuantity(unit: .pound(), doubleValue: .random(in: 160 + Double(i/3)...165 + Double(i/3)))
-    //            
-    //            let startDate = Calendar.current.date(byAdding: .day, value: -i, to: .now)!
-    //            let endDate = Calendar.current.date(byAdding: .minute, value: .random(in: 120...3600), to: startDate)!
-    //            
-    //            let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: startDate, end: endDate)
-    //            let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass),quantity: weightQuantity,start: startDate,end: endDate)
-    //            
-    //            sampleData.append(stepSample)
-    //            sampleData.append(weightSample)
-    //        }
-    //        
-    //        try! await store.save(sampleData)
-    //        print("✅ Sample data added.")
-    //    }
+        func addSampleData() async {
+            var sampleData: [HKQuantitySample] = []
+            
+            for i in 0...28 {
+                let stepQuantity = HKQuantity(unit: .count(), doubleValue: .random(in: 4_000...20_000))
+                let weightQuantity = HKQuantity(unit: .pound(), doubleValue: .random(in: 160 + Double(i/3)...165 + Double(i/3)))
+                
+                let startDate = Calendar.current.date(byAdding: .day, value: -i, to: .now)!
+                let endDate = Calendar.current.date(byAdding: .minute, value: .random(in: 120...3600), to: startDate)!
+                
+                let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: startDate, end: endDate)
+                let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass),quantity: weightQuantity,start: startDate,end: endDate)
+                
+                sampleData.append(stepSample)
+                sampleData.append(weightSample)
+            }
+            
+            try! await store.save(sampleData)
+            print("✅ Sample data added.")
+        }
 }
