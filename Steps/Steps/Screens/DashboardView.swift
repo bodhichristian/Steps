@@ -64,9 +64,8 @@ struct DashboardView: View {
             }
             .padding()
             .task {
-              //  await hkService.addSampleData()
+                //await hkService.addSampleData()
                 await hkService.fetchStepCount()
-               // ChartMath.averageWeekdayCount(for: hkService.stepData)
                 
                 // if user has not been primed, showingPrimer will be set to true
                 // and a permission priming sheet will be presented.
