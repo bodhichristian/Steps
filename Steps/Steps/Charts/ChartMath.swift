@@ -35,6 +35,6 @@ struct ChartMath {
             print("Day: \(day.date.weekdayInt), value: \(day.value)")
         }
 
-        return []
+        return weekdayChartData
     }
 }

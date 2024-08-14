@@ -25,6 +25,7 @@
 		AAD46EA32C654187005F7B8A /* StepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EA22C654187005F7B8A /* StepsTests.swift */; };
 		AAD46EAD2C654187005F7B8A /* StepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EAC2C654187005F7B8A /* StepsUITests.swift */; };
 		AAD46EAF2C654187005F7B8A /* StepsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */; };
+		AAFC01F92C6D04B4002A2820 /* StepPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		AAD46EA82C654187005F7B8A /* StepsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD46EAC2C654187005F7B8A /* StepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITests.swift; sourceTree = "<group>"; };
 		AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */,
 				AA25119B2C6D011D00EC5824 /* ChartMath.swift */,
 				AA25119C2C6D011D00EC5824 /* StepBarChart.swift */,
+				AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				AA2511A32C6D019200EC5824 /* ChartMath.swift in Sources */,
 				AA2511A42C6D019200EC5824 /* StepBarChart.swift in Sources */,
 				AA2511A22C6D018B00EC5824 /* ChartDataTypes.swift in Sources */,
+				AAFC01F92C6D04B4002A2820 /* StepPieChart.swift in Sources */,
 				AAD46E922C654185005F7B8A /* StepsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
