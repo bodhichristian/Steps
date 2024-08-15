@@ -31,7 +31,6 @@ struct DashboardView: View {
                     }
                     .pickerStyle(.segmented)
                     
-                    
                     StepBarChart(selectedStat: selectedStat, chartData: hkService.stepData)
                     
                     StepPieChart(chartData: ChartMath.averageWeekdayCount(for: hkService.stepData))
@@ -55,12 +54,9 @@ struct DashboardView: View {
             } content: {
                 HKPermissionPrimerView(permissionPrimed: $permissionPrimed)
             }
-
         }
         .tint(stepsSelected ? .pink : .indigo)
-    }   
-    
-
+    }
 }
 
 #Preview {

@@ -141,6 +141,7 @@
 		AA25119D2C6D011D00EC5824 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				AAD46E912C654185005F7B8A /* StepsApp.swift */,
 				AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */,
 				AA25119B2C6D011D00EC5824 /* ChartMath.swift */,
 				AA25119C2C6D011D00EC5824 /* StepBarChart.swift */,
@@ -182,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				AA2511B32C6D027100EC5824 /* Steps.entitlements */,
-				AAD46E912C654185005F7B8A /* StepsApp.swift */,
 				AA25119D2C6D011D00EC5824 /* Charts */,
 				AA2511992C6D011D00EC5824 /* Components */,
 				AA2511902C6D011D00EC5824 /* Extensions */,

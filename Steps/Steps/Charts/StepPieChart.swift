@@ -42,7 +42,6 @@ struct StepPieChart: View {
             // Card Body
             Chart {
                 ForEach(chartData) { weekday in
-                    
                     SectorMark(
                         angle: .value("Average Steps", weekday.value),
                         innerRadius: .ratio(0.618),
