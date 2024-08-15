@@ -25,16 +25,32 @@ struct ChartMath {
             weekdayChartData.append(.init(date: firstValue.date, value: averageSteps))
         }
         
-        for metric in sortedByWeekday {
-            print("Day: \(metric.date.weekdayInt), value: \(metric.value)")
+        return weekdayChartData
+    }
+    
+    static func averageDailyWeightDiffs(for weights: [HealthMetric]) ->[WeekdayChartData] {
+        var diffValues: [(date: Date, value: Double)] = []
+        
+        for i in 1..<weights.count {
+            let date = weights[i].date
+            let diff = weights[i].value - weights[i - 1].value
+            diffValues.append((date: date, value: diff))
         }
         
-        print("--------------------------")
+        let sortedByWeekday = diffValues.sorted { $0.date.weekdayInt < $1.date.weekdayInt }
+        let weekdayArray = sortedByWeekday.chunked {$0.date.weekdayInt == $1.date.weekdayInt }
         
-        for day in weekdayChartData {
-            print("Day: \(day.date.weekdayInt), value: \(day.value)")
+        var weekdayChartData: [WeekdayChartData] = []
+        
+        for array in weekdayArray {
+            
+            guard let firstValue = array.first else { continue }
+            let total = array.reduce(0) { $0 + $1.value }
+            let averageWeightDiff = total / Double(array.count)
+            
+            weekdayChartData.append(.init(date: firstValue.date, value: averageWeightDiff))
         }
-
+        
         return weekdayChartData
     }
 }
