@@ -10,7 +10,11 @@ import Charts
 
 struct WeightLineChart: View {
     var selectedStat: HealthMetricContext
-    var chartdata: [HealthMetric]
+    var chartData: [HealthMetric]
+    
+    var minValue: Double {
+        chartData.map { $0.value }.min() ?? 0
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,13 +39,15 @@ struct WeightLineChart: View {
             .foregroundStyle(.secondary)
             
             Chart {
-                ForEach(chartdata) { weight in
+                RuleMark(y: .value("Goal", 175)) // Replace with user choice
+                    .foregroundStyle(.mint)
+                    .lineStyle(.init(lineWidth: 1, dash: [5]))
+                
+                ForEach(chartData) { weight in
                     AreaMark(
                         x: .value("Day", weight.date, unit: .day),
-                        y: .value(
-                            "Value",
-                            weight.value
-                        )
+                        yStart: .value("Value", weight.value),
+                        yEnd: .value("Min Value", minValue) // end value ensures gradient does not draw below chart
                     )
                     .foregroundStyle(
                         LinearGradient(
@@ -51,6 +57,7 @@ struct WeightLineChart: View {
                         )
                     )
                     
+                    //.interpolationMethod(.catmullRom)
                     LineMark(
                         x: .value("Day", weight.date, unit: .day),
                         y: .value(
@@ -59,9 +66,25 @@ struct WeightLineChart: View {
                         )
                     )
                     .foregroundStyle(.indigo)
+//                    .interpolationMethod(.catmullRom) // overridden by symbol modifier
+                    .symbol(.circle)
                 }
             }
             .frame(height: 150)
+            .chartYScale(domain: .automatic(includesZero: false))
+            .chartXAxis {
+                AxisMarks {
+                    AxisValueLabel(format: .dateTime.month(.defaultDigits).day())
+                }
+            }
+            .chartYAxis {
+                AxisMarks { value in
+                    AxisGridLine()
+                        .foregroundStyle(.gray.opacity(0.3))
+                    
+                    AxisValueLabel()
+                }
+            }
         }
         .padding()
         .background {
@@ -72,5 +95,5 @@ struct WeightLineChart: View {
 }
 
 #Preview {
-    WeightLineChart(selectedStat: .weight, chartdata: MockData.weights)
+    WeightLineChart(selectedStat: .weight, chartData: MockData.weights)
 }
