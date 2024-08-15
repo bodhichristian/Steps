@@ -33,11 +33,22 @@ struct DashboardView: View {
                     
                     switch selectedStat {
                     case .steps:
-                        StepBarChart(selectedStat: selectedStat, chartData: hkService.stepData)
-                        StepPieChart(chartData: ChartMath.averageWeekdayCount(for: hkService.stepData))
+                        StepBarChart(
+                            selectedStat: selectedStat,
+                            chartData: hkService.stepData
+                        )
+                        StepPieChart(
+                            chartData: ChartMath.averageWeekdayCount(for: hkService.stepData)
+                        )
                     case .weight:
-                        WeightLineChart(selectedStat: selectedStat, chartData: hkService.weightData)
-                        
+                        WeightLineChart(
+                            selectedStat: selectedStat,
+                            chartData: hkService.weightData
+                        )
+                        WeightDiffBarChart(
+                            selectedStat: selectedStat,
+                            chartData: ChartMath.averageDailyWeightDiffs(for: hkService.weightDiffData)
+                        )
                     }
                 }
             }
@@ -46,6 +57,7 @@ struct DashboardView: View {
                 //await hkService.addSampleData()
                 await hkService.fetchStepCount()
                 await hkService.fetchWeights()
+                await hkService.fetchWeightForDifferentials()
                 // if user has not been primed, showingPrimer will be set to true
                 // and a permission priming sheet will be presented.
                 showingPrimer = !permissionPrimed

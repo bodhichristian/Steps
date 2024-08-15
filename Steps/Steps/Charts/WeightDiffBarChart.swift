@@ -28,11 +28,11 @@ struct WeightDiffBarChart: View {
             // Card Header
                 HStack {
                     VStack(alignment: .leading) {
-                        Label("Average Weight Change", systemImage: "figure.mixed.cardio")
+                        Label("Average Daily Change", systemImage: "calendar.circle")
                             .font(.title3.bold())
                             .foregroundStyle(.indigo)
                         
-                        Text("By Weekday (Last 28 Days)")
+                        Text("Last 28 Days")
                             .font(.caption)
                     }
                     
@@ -63,7 +63,7 @@ struct WeightDiffBarChart: View {
                     .opacity(rawSelectedDate == nil || weightDiff.date == selectedData?.date ? 1.0 : 0.3)
                 }
             }
-            .frame(height: 150)
+            .frame(height: 240)
             .chartXSelection(value: $rawSelectedDate.animation(.easeInOut))
             .chartXAxis {
                 AxisMarks(values: .stride(by: .day)) {
