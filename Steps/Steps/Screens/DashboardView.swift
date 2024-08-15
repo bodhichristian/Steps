@@ -37,6 +37,7 @@ struct DashboardView: View {
                         StepPieChart(chartData: ChartMath.averageWeekdayCount(for: hkService.stepData))
                     case .weight:
                         WeightLineChart(selectedStat: selectedStat, chartData: hkService.weightData)
+                        
                     }
                 }
             }

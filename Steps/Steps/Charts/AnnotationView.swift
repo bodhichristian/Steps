@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AnnotationView: View {
     var metric: HealthMetric?
+    var weekdayChartData: WeekdayChartData?
     var context: HealthMetricContext?
     
     var accentColor: Color {
@@ -22,13 +23,26 @@ struct AnnotationView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(metric?.date ?? .now, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day())
-                .font(.footnote.bold())
-                .foregroundStyle(.secondary)
-            
-            Text(metric?.value ?? 0, format: .number.precision(.fractionLength(context == .weight ? 1 : 0)))
-                .fontWeight(.heavy)
-                .foregroundStyle(accentColor)
+            if let weekdayChartData {
+                // Verbose label
+                Text(weekdayChartData.date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day())
+                    .font(.footnote.bold())
+                    .foregroundStyle(.secondary)
+                
+                // Value
+                Text(weekdayChartData.value, format: .number.precision(.fractionLength(context == .weight ? 1 : 0)))
+                    .fontWeight(.heavy)
+                    .foregroundStyle(weekdayChartData.value > 0 ?  accentColor : .mint)
+            }
+            else {
+                Text(metric?.date ?? .now, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day())
+                    .font(.footnote.bold())
+                    .foregroundStyle(.secondary)
+                
+                Text(metric?.value ?? 0, format: .number.precision(.fractionLength(context == .weight ? 1 : 0)))
+                    .fontWeight(.heavy)
+                    .foregroundStyle(accentColor)
+            }
         }
         .padding(12)
         .background {
