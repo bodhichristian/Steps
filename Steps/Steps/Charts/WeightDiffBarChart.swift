@@ -1,88 +1,73 @@
 //
-//  StepBarChart.swift
+//  WeightBarChart.swift
 //  Steps
 //
-//  Created by christian on 8/8/24.
+//  Created by christian on 8/15/24.
 //
 
 import SwiftUI
 import Charts
 
-struct StepBarChart: View {
+struct WeightDiffBarChart: View {
     var selectedStat: HealthMetricContext
-    var chartData: [HealthMetric]
+    var chartData: [WeekdayChartData]
     
-    var averageStepCount: Double {
-        guard !chartData.isEmpty else { return 0 }
-        
-        let totalSteps = chartData.reduce(0) { $0 + $1.value}
-        return totalSteps / Double(chartData.count)
-    }
-    
-    var selectedHealthMetric: HealthMetric? {
+    var selectedData: WeekdayChartData? {
         guard let rawSelectedDate else { return nil }
-
+        
         return chartData.first {
             Calendar.current.isDate(rawSelectedDate, inSameDayAs: $0.date)
         }
     }
     
     @State private var rawSelectedDate: Date?
-
+    
     var body: some View {
         // Steps Card
         VStack(alignment: .leading) {
             // Card Header
-            NavigationLink(value: selectedStat) {
                 HStack {
                     VStack(alignment: .leading) {
-                        Label("Steps", systemImage: "figure.walk")
+                        Label("Average Daily Change", systemImage: "calendar.circle")
                             .font(.title3.bold())
-                            .foregroundStyle(.pink)
+                            .foregroundStyle(.indigo)
                         
-                        Text("Avg: \(Int(averageStepCount)) Steps")
+                        Text("Last 28 Days")
                             .font(.caption)
                     }
                     
                     Spacer()
-                    
-                    Image(systemName: "chevron.right")
                 }
                 .padding(.bottom, 12)
-            }
             .foregroundStyle(.secondary)
             
             Chart {
-                if let selectedHealthMetric {
-                    RuleMark(x: .value("Selected Metric", selectedHealthMetric.date, unit: .day))
+                if let selectedData {
+                    RuleMark(x: .value("Selected Metric", selectedData.date, unit: .day))
                         .foregroundStyle(.secondary.opacity(0.3))
                         .offset(y: -5)
                         .annotation(
                             position: .top,
                             spacing: 0,
                             overflowResolution: .init(x: .fit(to:.chart), y: .disabled)) {
-                                AnnotationView(metric: selectedHealthMetric, context: selectedStat)
+                                AnnotationView(weekdayChartData: selectedData, context: selectedStat)
                             }
                 }
                 
-                RuleMark(y: .value("Average", averageStepCount))
-                    .foregroundStyle(.secondary)
-                    .lineStyle(.init(lineWidth: 1, dash: [5]))
-                
-                ForEach(chartData) { data in
+                ForEach(chartData) { weightDiff in
                     BarMark(
-                        x: .value("Date", data.date, unit: .day),
-                        y: .value("Steps", data.value)
+                        x: .value("Date", weightDiff.date, unit: .day),
+                        y: .value("Weight Diff", weightDiff.value)
                     )
-                    .foregroundStyle(.pink.gradient)
-                    .opacity(rawSelectedDate == nil || data.date == selectedHealthMetric?.date ? 1.0 : 0.3)
+                    .foregroundStyle((weightDiff.value > 0 ) ? Color.indigo.gradient : Color.mint.gradient)
+                    .opacity(rawSelectedDate == nil || weightDiff.date == selectedData?.date ? 1.0 : 0.3)
                 }
             }
-            .frame(height: 150)
+            .frame(height: 240)
             .chartXSelection(value: $rawSelectedDate.animation(.easeInOut))
             .chartXAxis {
-                AxisMarks {
-                    AxisValueLabel(format: .dateTime.month(.defaultDigits).day())
+                AxisMarks(values: .stride(by: .day)) {
+                    AxisValueLabel(format: .dateTime.weekday(), centered: true)
                 }
             }
             .chartYAxis {
@@ -99,11 +84,10 @@ struct StepBarChart: View {
             RoundedRectangle(cornerRadius: 12)
                 .foregroundStyle(Color(.secondarySystemBackground))
         }
+
     }
-    
-    
 }
 
 #Preview {
-    StepBarChart(selectedStat: .steps, chartData: MockData.steps)
+    WeightDiffBarChart(selectedStat: .weight, chartData: MockData.weightDiffs)
 }

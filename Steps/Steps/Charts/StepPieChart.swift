@@ -28,7 +28,7 @@ struct StepPieChart: View {
             // Card Header
             HStack {
                 VStack(alignment: .leading) {
-                    Label("Averages", systemImage: "calendar")
+                    Label("Daily Averages", systemImage: "calendar")
                         .font(.title3.bold())
                         .foregroundStyle(.pink)
                     
@@ -91,7 +91,7 @@ struct StepPieChart: View {
 }
 
 #Preview {
-    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: HealthMetric.mockData))
+    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: MockData.steps))
 }
 
 
