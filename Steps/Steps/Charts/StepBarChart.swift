@@ -61,7 +61,7 @@ struct StepBarChart: View {
                             position: .top,
                             spacing: 0,
                             overflowResolution: .init(x: .fit(to:.chart), y: .disabled)) {
-                                annotationView
+                                AnnotationView(metric: selectedHealthMetric, context: selectedStat)
                             }
                 }
                 
@@ -101,23 +101,7 @@ struct StepBarChart: View {
         }
     }
     
-    private var annotationView: some View {
-        VStack(alignment: .leading) {
-            Text(selectedHealthMetric?.date ?? .now, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day())
-                .font(.footnote.bold())
-                .foregroundStyle(.secondary)
-            
-            Text(Int(selectedHealthMetric?.value ?? 0), format: .number)
-                .fontWeight(.heavy)
-                .foregroundStyle(.pink)
-        }
-        .padding(12)
-        .background {
-            RoundedRectangle(cornerRadius: 4)
-                .fill(Color(.secondarySystemBackground))
-                .shadow(color: .secondary.opacity(0.3), radius: 2, x: 2, y: 2)
-        }
-    }
+    
 }
 
 #Preview {

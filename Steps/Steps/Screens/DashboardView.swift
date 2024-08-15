@@ -18,7 +18,7 @@ struct DashboardView: View {
     var stepsSelected: Bool {
         selectedStat == .steps
     }
-
+    
     var body: some View {
         NavigationStack{
             ScrollView {
@@ -31,16 +31,20 @@ struct DashboardView: View {
                     }
                     .pickerStyle(.segmented)
                     
-                    StepBarChart(selectedStat: selectedStat, chartData: hkService.stepData)
-                    
-                    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: hkService.stepData))
+                    switch selectedStat {
+                    case .steps:
+                        StepBarChart(selectedStat: selectedStat, chartData: hkService.stepData)
+                        StepPieChart(chartData: ChartMath.averageWeekdayCount(for: hkService.stepData))
+                    case .weight:
+                        WeightLineChart(selectedStat: selectedStat, chartData: hkService.weightData)
+                    }
                 }
             }
             .padding()
             .task {
                 //await hkService.addSampleData()
                 await hkService.fetchStepCount()
-                
+                await hkService.fetchWeights()
                 // if user has not been primed, showingPrimer will be set to true
                 // and a permission priming sheet will be presented.
                 showingPrimer = !permissionPrimed
