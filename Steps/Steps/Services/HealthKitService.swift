@@ -1,4 +1,4 @@
-//
+
 //  HKService.swift
 //  Steps
 //
@@ -101,24 +101,38 @@ class HealthKitService {
         }
     }
     
-        func addSampleData() async {
-            var sampleData: [HKQuantitySample] = []
+    func addSampleData() async {
+        var sampleData: [HKQuantitySample] = []
+        
+        for i in 0...28 {
+            let stepQuantity = HKQuantity(unit: .count(), doubleValue: .random(in: 4_000...20_000))
+            let weightQuantity = HKQuantity(unit: .pound(), doubleValue: .random(in: 160 + Double(i/3)...165 + Double(i/3)))
             
-            for i in 0...28 {
-                let stepQuantity = HKQuantity(unit: .count(), doubleValue: .random(in: 4_000...20_000))
-                let weightQuantity = HKQuantity(unit: .pound(), doubleValue: .random(in: 160 + Double(i/3)...165 + Double(i/3)))
-                
-                let startDate = Calendar.current.date(byAdding: .day, value: -i, to: .now)!
-                let endDate = Calendar.current.date(byAdding: .minute, value: .random(in: 120...3600), to: startDate)!
-                
-                let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: startDate, end: endDate)
-                let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass),quantity: weightQuantity,start: startDate,end: endDate)
-                
-                sampleData.append(stepSample)
-                sampleData.append(weightSample)
-            }
+            let startDate = Calendar.current.date(byAdding: .day, value: -i, to: .now)!
+            let endDate = Calendar.current.date(byAdding: .minute, value: .random(in: 120...3600), to: startDate)!
             
-            try! await store.save(sampleData)
-            print("✅ Sample data added.")
+            let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: startDate, end: endDate)
+            let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass),quantity: weightQuantity,start: startDate,end: endDate)
+            
+            sampleData.append(stepSample)
+            sampleData.append(weightSample)
         }
+        
+        try! await store.save(sampleData)
+        print("✅ Sample data added.")
+    }
+    
+    func addStepData(for date: Date, value: Double) async {
+        let stepQuantity = HKQuantity(unit: .count(), doubleValue: value)
+        let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: date, end: date)
+        
+        try! await store.save(stepSample)
+    }
+    
+    func addWeightData(for date: Date, value: Double) async {
+        let weightQuantity = HKQuantity(unit: .pound(), doubleValue: value)
+        let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass), quantity: weightQuantity, start: date, end: date)
+        
+        try! await store.save(weightSample)
+    }
 }
