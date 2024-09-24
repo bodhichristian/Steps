@@ -1,4 +1,4 @@
-//
+
 //  StepPieChart.swift
 //  Steps
 //

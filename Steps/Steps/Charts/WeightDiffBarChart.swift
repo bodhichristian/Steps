@@ -28,6 +28,7 @@ struct WeightDiffBarChart: View {
             // Card Header
                 HStack {
                     VStack(alignment: .leading) {
+                
                         Label("Average Daily Change", systemImage: "calendar.circle")
                             .font(.title3.bold())
                             .foregroundStyle(.indigo)

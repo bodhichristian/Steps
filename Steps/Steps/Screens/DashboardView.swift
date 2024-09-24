@@ -20,7 +20,7 @@ struct DashboardView: View {
     }
     
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
                     
