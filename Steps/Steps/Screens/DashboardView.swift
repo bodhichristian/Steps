@@ -9,7 +9,6 @@ import SwiftUI
 import Charts
 
 struct DashboardView: View {
-    @AppStorage("permissionPrimed") private var permissionPrimed = false
     
     @Environment(HealthKitService.self) var hkService
     @State private var showingPrimer = false
@@ -54,13 +53,18 @@ struct DashboardView: View {
             }
             .padding()
             .task {
-                //await hkService.addSampleData()
-                await hkService.fetchStepCount()
-                await hkService.fetchWeights()
-                await hkService.fetchWeightForDifferentials()
-                // if user has not been primed, showingPrimer will be set to true
-                // and a permission priming sheet will be presented.
-                showingPrimer = !permissionPrimed
+                do {
+                    //await hkService.addSampleData()
+                    try await hkService.fetchStepCount()
+                    try await hkService.fetchWeights()
+                    try await hkService.fetchWeightForDifferentials()
+                } catch STError.authNotDetermined {
+                    showingPrimer = true
+                } catch STError.noData {
+                    print("❌ No Data Error")
+                } catch {
+                    print("❌ Unable to complete request")
+                }
             }
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self) { metric in
@@ -69,7 +73,7 @@ struct DashboardView: View {
             .sheet(isPresented: $showingPrimer) {
                 // fetch health data
             } content: {
-                HKPermissionPrimerView(permissionPrimed: $permissionPrimed)
+                HKPermissionPrimerView()
             }
         }
         .tint(stepsSelected ? .pink : .indigo)

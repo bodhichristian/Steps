@@ -61,12 +61,26 @@ struct HealthDataListView: View {
                     Button("Add data") {
                         Task {
                             if metric == .steps {
-                                await hkService.addStepData(for: date, value: Double(inputValue)!)
-                                await hkService.fetchStepCount()
+                                do {
+                                    try await hkService.addStepData(for: date, value: Double(inputValue)!)
+                                    try await hkService.fetchStepCount()
+                                    isAddingData = false
+                                } catch STError.sharingDenied(let quantityType) {
+                                    print("❌ sharing denied for \(quantityType)")
+                                } catch {
+                                    print("❌ Data List View unable to complet request")
+                                }
                             } else {
-                                await hkService.addWeightData(for: date, value: Double(inputValue)!)
-                                await hkService.fetchWeights()
-                                await hkService.fetchWeightForDifferentials()
+                                do {
+                                    try await hkService.addWeightData(for: date, value: Double(inputValue)!)
+                                    try await hkService.fetchWeights()
+                                    try await hkService.fetchWeightForDifferentials()
+                                    isAddingData = false
+                                } catch STError.sharingDenied(let quantityType) {
+                                    print("❌ sharing denied for \(quantityType)")
+                                } catch {
+                                    print("❌ Data List View unable to complet request")
+                                }
                             }
                             
                             isAddingData = false
