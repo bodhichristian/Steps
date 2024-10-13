@@ -9,11 +9,37 @@ import Foundation
 import HealthKit
 import Observation
 
-enum STError: Error {
+enum STError: LocalizedError {
     case authNotDetermined
     case sharingDenied(quantityType: String)
     case noData
     case unableToCompleteRequest
+    
+    var errorDescription: String? {
+        switch self {
+        case .authNotDetermined:
+            "Need Access to Health Data"
+        case .sharingDenied(let quantityType):
+            "No Write Access for \(quantityType)"
+        case .noData:
+            "No Data"
+        case .unableToCompleteRequest:
+            "Unable to Complete Request"
+        }
+    }
+    
+    var failureReason: String {
+        switch self {
+        case .authNotDetermined:
+            "You have not granted Steps access to your Health Data. Please visit Settings > Health > Data Access & Devices."
+        case .sharingDenied(let quantityType):
+            "You have not granted access to upload your \(quantityType) data. \n\nYou can change this in Settings > Health > Data Access & Devices"
+        case .noData:
+            "There is no data for this Health metric."
+        case .unableToCompleteRequest:
+            "Unable to complete your request at this time. Please try again later."
+        }
+    }
 }
 
 @Observable
@@ -27,7 +53,7 @@ class HealthKitService {
     var weightData: [HealthMetric] = []
     var weightDiffData: [HealthMetric] = []
     
-    func fetchStepCount() async throws {
+    func fetchStepCount() async throws {        
         guard store.authorizationStatus(for: HKQuantityType(.stepCount)) != .notDetermined else {
             throw STError.authNotDetermined
         }

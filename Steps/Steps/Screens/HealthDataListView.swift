@@ -12,6 +12,8 @@ struct HealthDataListView: View {
     @State private var isAddingData: Bool = false
     @State private var date: Date = .now
     @State private var inputValue: String = ""
+    @State private var showingAlert: Bool = false
+    @State private var writeError: STError = .noData
     
     var metric: HealthMetricContext
     
@@ -29,14 +31,36 @@ struct HealthDataListView: View {
             }
         }
         .navigationTitle(metric.title)
-        .sheet(isPresented: $isAddingData) {
-            addDataView
-        }
-        .toolbar {
-            Button("Add Data", systemImage: "plus") {
-                isAddingData = true
+        
+        
+        
+        .alert(
+            isPresented: $showingAlert,
+            error: writeError) { writeError in
+                switch writeError {
+                case .authNotDetermined, .noData, .unableToCompleteRequest:
+                    EmptyView()
+                case .sharingDenied(_):
+                    Button("Settings") {
+                        UIApplication.shared.open(
+                            URL(string: UIApplication.openSettingsURLString)!
+                        )
+                    }
+                    
+                    Button("Cancel", role: .cancel) { }
+                }
+            } message: { writeError in
+                Text(writeError.failureReason)
             }
-        }
+        
+            .sheet(isPresented: $isAddingData) {
+                addDataView
+            }
+            .toolbar {
+                Button("Add Data", systemImage: "plus") {
+                    isAddingData = true
+                }
+            }
     }
     
     private var addDataView: some View {
@@ -56,9 +80,23 @@ struct HealthDataListView: View {
                 }
             }
             .navigationTitle(metric.title)
+            .alert(isPresented: $showingAlert, error: writeError) { writeError in
+                switch writeError {
+                case .authNotDetermined, .noData, .unableToCompleteRequest:
+                    EmptyView()
+                case .sharingDenied(_):
+                    Button("Settings") {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    }
+                    
+                    Button("Cancel", role: .cancel) { }
+                }
+            } message: { writeError in
+                Text(writeError.failureReason)
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Add data") {
+                    Button("Add Data") {
                         Task {
                             if metric == .steps {
                                 do {
@@ -66,10 +104,13 @@ struct HealthDataListView: View {
                                     try await hkService.fetchStepCount()
                                     isAddingData = false
                                 } catch STError.sharingDenied(let quantityType) {
-                                    print("❌ sharing denied for \(quantityType)")
+                                    writeError = .sharingDenied(quantityType: quantityType)
+                                    showingAlert = true
                                 } catch {
-                                    print("❌ Data List View unable to complet request")
+                                    writeError = .unableToCompleteRequest
+                                    showingAlert = true
                                 }
+                                
                             } else {
                                 do {
                                     try await hkService.addWeightData(for: date, value: Double(inputValue)!)
@@ -77,9 +118,11 @@ struct HealthDataListView: View {
                                     try await hkService.fetchWeightForDifferentials()
                                     isAddingData = false
                                 } catch STError.sharingDenied(let quantityType) {
-                                    print("❌ sharing denied for \(quantityType)")
+                                    writeError = .sharingDenied(quantityType: quantityType)
+                                    showingAlert = true
                                 } catch {
-                                    print("❌ Data List View unable to complet request")
+                                    writeError = .unableToCompleteRequest
+                                    showingAlert = true
                                 }
                             }
                             
