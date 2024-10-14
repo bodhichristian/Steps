@@ -40,44 +40,53 @@ struct StepPieChart: View {
             }
             .padding(.bottom, 12)
             
-            // Card Body
-            Chart {
-                ForEach(chartData) { weekday in
-                    SectorMark(
-                        angle: .value("Average Steps", weekday.value),
-                        innerRadius: .ratio(0.618),
-                        outerRadius: selectedWeekday?.date.weekdayInt == weekday.date.weekdayInt ? 140 : 110,
-                        angularInset: 1
-                    )
-                    .foregroundStyle(.pink.gradient)
-                    .cornerRadius(6)
-                    .opacity(selectedWeekday == nil ? 1.0 : selectedWeekday?.date.weekdayInt == weekday.date.weekdayInt ? 1.0 : 0.3)
+            if chartData.isEmpty {
+                ChartDataUnavailableView(
+                    symbolName: "chart.bar",
+                    title: "No Data",
+                    description: "There is no step data from the health app."
+                )
+
+            } else {
+                // Card Body
+                Chart {
+                    ForEach(chartData) { weekday in
+                        SectorMark(
+                            angle: .value("Average Steps", weekday.value),
+                            innerRadius: .ratio(0.618),
+                            outerRadius: selectedWeekday?.date.weekdayInt == weekday.date.weekdayInt ? 140 : 110,
+                            angularInset: 1
+                        )
+                        .foregroundStyle(.pink.gradient)
+                        .cornerRadius(6)
+                        .opacity(selectedWeekday == nil ? 1.0 : selectedWeekday?.date.weekdayInt == weekday.date.weekdayInt ? 1.0 : 0.3)
+                    }
                 }
-            }
-            .chartAngleSelection(value: $rawSelectedChartValue.animation(.easeInOut))
-            .chartLegend(.hidden)
-            .frame(height: 240)
-            .chartBackground { proxy in
-                GeometryReader { geo in
-                    if let plotFrame = proxy.plotFrame {
-                        
-                        let frame = geo[plotFrame]
-                        if let selectedWeekday {
-                            VStack(alignment: .center) {
-                                Text(selectedWeekday.date.weekdayTitle)
-                                    .font(.title3.bold())
-                                    .contentTransition(.numericText())
-                                
-                                Text("\(Int(selectedWeekday.value))")
-                                    .fontWeight(.medium)
-                                    .foregroundStyle(.secondary)
-                                    .contentTransition(.numericText())
-                            }
-                            .position(x: frame.midX, y: frame.midY)
-                        } else {
-                            Text("Select a day")
-                                .foregroundStyle(.secondary)
+                .chartAngleSelection(value: $rawSelectedChartValue.animation(.easeInOut))
+                .chartLegend(.hidden)
+                .frame(height: 240)
+                .chartBackground { proxy in
+                    GeometryReader { geo in
+                        if let plotFrame = proxy.plotFrame {
+                            
+                            let frame = geo[plotFrame]
+                            if let selectedWeekday {
+                                VStack(alignment: .center) {
+                                    Text(selectedWeekday.date.weekdayTitle)
+                                        .font(.title3.bold())
+                                        .contentTransition(.numericText())
+                                    
+                                    Text("\(Int(selectedWeekday.value))")
+                                        .fontWeight(.medium)
+                                        .foregroundStyle(.secondary)
+                                        .contentTransition(.numericText())
+                                }
                                 .position(x: frame.midX, y: frame.midY)
+                            } else {
+                                Text("Select a day")
+                                    .foregroundStyle(.secondary)
+                                    .position(x: frame.midX, y: frame.midY)
+                            }
                         }
                     }
                 }
@@ -99,25 +108,6 @@ struct StepPieChart: View {
 }
 
 #Preview {
-    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: MockData.steps))
+    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: [])) // Replace empty array with MockData.steps to preview working chart
 }
 
-
-
-
-
-
-
-
-
-
-//                    // Create a visual hierarchy based on days of the week
-//                    SectorMark(angle: .value("Average Steps", weekday.value))
-//                        .foregroundStyle(by: .value("Weekday", weekday.date.weekdayTitle))
-
-// Annotation option. Difficult to visually manage on pie chart.
-//                    .annotation(position: .overlay) {
-//                        Text(weekday.value, format: .number.notation(.compactName))
-//                            .foregroundStyle(.white)
-//                            .fontWeight(.bold)
-//                    }
