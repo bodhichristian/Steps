@@ -9,8 +9,6 @@ import SwiftUI
 import Charts
 
 struct WeightLineChart: View {
-    @State private var rawSelectedDate: Date?
-    
     var selectedStat: HealthMetricContext
     var chartData: [HealthMetric]
     
@@ -25,6 +23,9 @@ struct WeightLineChart: View {
             Calendar.current.isDate(rawSelectedDate, inSameDayAs: $0.date)
         }
     }
+    
+    @State private var rawSelectedDate: Date?
+    @State private var selectedDay: Date?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -113,6 +114,14 @@ struct WeightLineChart: View {
         .background {
             RoundedRectangle(cornerRadius: 12)
                 .foregroundStyle(Color(.secondarySystemBackground))
+        }
+        .sensoryFeedback(.selection, trigger: selectedDay)
+        .onChange(of: rawSelectedDate) { oldValue, newValue in
+            if let newValue {
+                if oldValue?.weekdayInt != newValue.weekdayInt {
+                    selectedDay = newValue
+                }
+            }
         }
     }
 }

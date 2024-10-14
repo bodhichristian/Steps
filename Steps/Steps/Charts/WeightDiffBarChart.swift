@@ -21,6 +21,7 @@ struct WeightDiffBarChart: View {
     }
     
     @State private var rawSelectedDate: Date?
+    @State private var selectedDay: Date?
     
     var body: some View {
         // Steps Card
@@ -85,7 +86,14 @@ struct WeightDiffBarChart: View {
             RoundedRectangle(cornerRadius: 12)
                 .foregroundStyle(Color(.secondarySystemBackground))
         }
-
+        .sensoryFeedback(.selection, trigger: selectedDay)
+        .onChange(of: rawSelectedDate) { oldValue, newValue in
+            if let newValue {
+                if oldValue?.weekdayInt != newValue.weekdayInt {
+                    selectedDay = newValue
+                }
+            }
+        }
     }
 }
 

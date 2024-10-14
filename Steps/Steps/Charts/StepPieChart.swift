@@ -9,8 +9,6 @@ import SwiftUI
 import Charts
 
 struct StepPieChart: View {
-    @State private var rawSelectedChartValue: Double?
-    
     var chartData: [WeekdayChartData]
     
     var selectedWeekday: WeekdayChartData? {
@@ -22,6 +20,9 @@ struct StepPieChart: View {
             return rawSelectedChartValue <= total
         }
     }
+    
+    @State private var rawSelectedChartValue: Double?
+    @State private var selectedDay: Date?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -86,6 +87,13 @@ struct StepPieChart: View {
         .background {
             RoundedRectangle(cornerRadius: 12)
                 .foregroundStyle(Color(.secondarySystemBackground))
+        }
+        .sensoryFeedback(.selection, trigger: selectedDay)
+        .onChange(of: selectedWeekday) { oldValue, newValue in
+            guard let oldValue, let newValue else { return }
+            if oldValue.date.weekdayInt != newValue.date.weekdayInt {
+                selectedDay = newValue.date
+            }
         }
     }
 }
