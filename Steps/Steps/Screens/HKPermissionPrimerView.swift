@@ -11,8 +11,6 @@ import HealthKitUI
 struct HKPermissionPrimerView: View {
     @Environment(HealthKitService.self) var hkService
     @Environment(\.dismiss) var dismiss
-    
-    @Binding var permissionPrimed: Bool
     @State private var requestingPermission: Bool = false
     
     let permissionPrimer: String = """
@@ -52,7 +50,6 @@ struct HKPermissionPrimerView: View {
             .padding()
         }
         .interactiveDismissDisabled()
-        .onAppear { permissionPrimed  = true }
         .healthDataAccessRequest(
             store: hkService.store,
             shareTypes: hkService.types,
@@ -71,6 +68,6 @@ struct HKPermissionPrimerView: View {
 }
 
 #Preview {
-    HKPermissionPrimerView(permissionPrimed: .constant(false))
+    HKPermissionPrimerView()
         .environment(HealthKitService())
 }

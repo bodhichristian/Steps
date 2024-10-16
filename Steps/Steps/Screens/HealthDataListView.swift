@@ -12,6 +12,8 @@ struct HealthDataListView: View {
     @State private var isAddingData: Bool = false
     @State private var date: Date = .now
     @State private var inputValue: String = ""
+    @State private var showingAlert: Bool = false
+    @State private var writeError: STError = .noData
     
     var metric: HealthMetricContext
     
@@ -28,7 +30,6 @@ struct HealthDataListView: View {
                 Text(data.value, format: .number.precision(.fractionLength(metric == .steps ? 0 : 1)))
             }
         }
-        .navigationTitle(metric.title)
         .sheet(isPresented: $isAddingData) {
             addDataView
         }
@@ -56,20 +57,57 @@ struct HealthDataListView: View {
                 }
             }
             .navigationTitle(metric.title)
+            .alert(isPresented: $showingAlert, error: writeError) { writeError in
+                switch writeError {
+                case .authNotDetermined, .noData, .unableToCompleteRequest, .invalidInputValue:
+                    EmptyView()
+                case .sharingDenied(_):
+                    Button("Settings") {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    }
+                    
+                    Button("Cancel", role: .cancel) { }
+                }
+            } message: { writeError in
+                Text(writeError.failureReason)
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Add data") {
+                    Button("Add Data") {
+                        guard let value = Double(inputValue) else {
+                            writeError = .invalidInputValue
+                            showingAlert = true
+                            inputValue = ""
+                            return
+                        }
                         Task {
                             if metric == .steps {
-                                await hkService.addStepData(for: date, value: Double(inputValue)!)
-                                await hkService.fetchStepCount()
+                                do {
+                                    try await hkService.addStepData(for: date, value: value)
+                                    try await hkService.fetchStepCount()
+                                    isAddingData = false
+                                } catch STError.sharingDenied(let quantityType) {
+                                    writeError = .sharingDenied(quantityType: quantityType)
+                                    showingAlert = true
+                                } catch {
+                                    writeError = .unableToCompleteRequest
+                                    showingAlert = true
+                                }
+                                
                             } else {
-                                await hkService.addWeightData(for: date, value: Double(inputValue)!)
-                                await hkService.fetchWeights()
-                                await hkService.fetchWeightForDifferentials()
+                                do {
+                                    try await hkService.addWeightData(for: date, value: Double(inputValue)!)
+                                    try await hkService.fetchWeights()
+                                    try await hkService.fetchWeightForDifferentials()
+                                    isAddingData = false
+                                } catch STError.sharingDenied(let quantityType) {
+                                    writeError = .sharingDenied(quantityType: quantityType)
+                                    showingAlert = true
+                                } catch {
+                                    writeError = .unableToCompleteRequest
+                                    showingAlert = true
+                                }
                             }
-                            
-                            isAddingData = false
                         }
                     }
                 }

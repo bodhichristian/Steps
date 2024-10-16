@@ -9,11 +9,12 @@ import SwiftUI
 import Charts
 
 struct DashboardView: View {
-    @AppStorage("permissionPrimed") private var permissionPrimed = false
     
     @Environment(HealthKitService.self) var hkService
     @State private var showingPrimer = false
     @State private var selectedStat: HealthMetricContext = .steps
+    @State private var showingAlert = false
+    @State private var fetchError: STError = .noData
     
     var stepsSelected: Bool {
         selectedStat == .steps
@@ -54,25 +55,38 @@ struct DashboardView: View {
             }
             .padding()
             .task {
-                //await hkService.addSampleData()
-                await hkService.fetchStepCount()
-                await hkService.fetchWeights()
-                await hkService.fetchWeightForDifferentials()
-                // if user has not been primed, showingPrimer will be set to true
-                // and a permission priming sheet will be presented.
-                showingPrimer = !permissionPrimed
+                do {
+                    //await hkService.addSampleData()
+                    try await hkService.fetchStepCount()
+                    try await hkService.fetchWeights()
+                    try await hkService.fetchWeightForDifferentials()
+                } catch STError.authNotDetermined {
+                    showingPrimer = true
+                } catch STError.noData {
+                    fetchError = .noData
+                    showingAlert = true
+                } catch {
+                    fetchError = .unableToCompleteRequest
+                    showingAlert = true
+                }
             }
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self) { metric in
                 HealthDataListView(metric: metric)
             }
+            .alert(isPresented: $showingAlert, error: fetchError) { fetchError in
+                // Action
+            } message: { fetchError in
+                Text(fetchError.failureReason)
+            }
             .sheet(isPresented: $showingPrimer) {
                 // fetch health data
             } content: {
-                HKPermissionPrimerView(permissionPrimed: $permissionPrimed)
+                HKPermissionPrimerView()
             }
+            .tint(stepsSelected ? .pink : .indigo)
+            
         }
-        .tint(stepsSelected ? .pink : .indigo)
     }
 }
 
