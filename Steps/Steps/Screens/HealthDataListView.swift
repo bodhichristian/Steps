@@ -30,37 +30,14 @@ struct HealthDataListView: View {
                 Text(data.value, format: .number.precision(.fractionLength(metric == .steps ? 0 : 1)))
             }
         }
-        .navigationTitle(metric.title)
-        
-        
-        
-        .alert(
-            isPresented: $showingAlert,
-            error: writeError) { writeError in
-                switch writeError {
-                case .authNotDetermined, .noData, .unableToCompleteRequest:
-                    EmptyView()
-                case .sharingDenied(_):
-                    Button("Settings") {
-                        UIApplication.shared.open(
-                            URL(string: UIApplication.openSettingsURLString)!
-                        )
-                    }
-                    
-                    Button("Cancel", role: .cancel) { }
-                }
-            } message: { writeError in
-                Text(writeError.failureReason)
+        .sheet(isPresented: $isAddingData) {
+            addDataView
+        }
+        .toolbar {
+            Button("Add Data", systemImage: "plus") {
+                isAddingData = true
             }
-        
-            .sheet(isPresented: $isAddingData) {
-                addDataView
-            }
-            .toolbar {
-                Button("Add Data", systemImage: "plus") {
-                    isAddingData = true
-                }
-            }
+        }
     }
     
     private var addDataView: some View {
@@ -82,7 +59,7 @@ struct HealthDataListView: View {
             .navigationTitle(metric.title)
             .alert(isPresented: $showingAlert, error: writeError) { writeError in
                 switch writeError {
-                case .authNotDetermined, .noData, .unableToCompleteRequest:
+                case .authNotDetermined, .noData, .unableToCompleteRequest, .invalidInputValue:
                     EmptyView()
                 case .sharingDenied(_):
                     Button("Settings") {
@@ -97,10 +74,16 @@ struct HealthDataListView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add Data") {
+                        guard let value = Double(inputValue) else {
+                            writeError = .invalidInputValue
+                            showingAlert = true
+                            inputValue = ""
+                            return
+                        }
                         Task {
                             if metric == .steps {
                                 do {
-                                    try await hkService.addStepData(for: date, value: Double(inputValue)!)
+                                    try await hkService.addStepData(for: date, value: value)
                                     try await hkService.fetchStepCount()
                                     isAddingData = false
                                 } catch STError.sharingDenied(let quantityType) {
@@ -125,8 +108,6 @@ struct HealthDataListView: View {
                                     showingAlert = true
                                 }
                             }
-                            
-                            isAddingData = false
                         }
                     }
                 }
