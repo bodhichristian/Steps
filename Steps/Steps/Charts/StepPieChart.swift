@@ -11,7 +11,7 @@ import Charts
 struct StepPieChart: View {
     var chartData: [DateValueChartData]
     
-    var selectedWeekday: DateValueChartData? {
+    private var selectedWeekday: DateValueChartData? {
         guard let rawSelectedChartValue else { return nil }
 
         var total = 0.0
@@ -21,17 +21,20 @@ struct StepPieChart: View {
         }
     }
     
-    @State private var rawSelectedChartValue: Double?
-    @State private var selectedDay: Date?
-    
-    var body: some View {
-        ChartContainer(
+    private var config: ChartContainerConfiguration {
+        .init(
             title: "Daily Averages",
             symbol: "figure.walk",
             subtitle: "Last 28 Days",
             context: .steps,
-            isNav: false) {
-            
+            isNav: false)
+    }
+
+    @State private var rawSelectedChartValue: Double?
+    @State private var selectedDay: Date?
+    
+    var body: some View {
+        ChartContainer(config: config) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.bar",

@@ -11,21 +11,25 @@ import Charts
 struct WeightDiffBarChart: View {
     var chartData: [DateValueChartData]
     
-    var selectedData: DateValueChartData? {
+    private var selectedData: DateValueChartData? {
         ChartHelper.parseSelectedData(from: chartData, in: rawSelectedDate)
+    }
+    
+    private var config: ChartContainerConfiguration {
+        .init(
+            title: "Weight",
+            symbol: "calendar",
+            subtitle: "Last 28 Days",
+            context: .weight,
+            isNav: true
+        )
     }
     
     @State private var rawSelectedDate: Date?
     @State private var selectedDay: Date?
     
     var body: some View {
-        ChartContainer(
-            title: "Weight",
-            symbol: "calendar",
-            subtitle: "Last 28 Days",
-            context: .weight,
-            isNav: true) {
-            
+        ChartContainer(config: config) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.bar",

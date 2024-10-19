@@ -160,6 +160,7 @@
 			children = (
 				AABE4E7A2C6E7CFC000B0965 /* AnnotationView.swift */,
 				AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */,
+				AAA144592CBD8F280085277D /* ChartDataUnavailableView.swift */,
 				AAA1447B2CC3ED7E0085277D /* ChartHelper.swift */,
 				AA25119B2C6D011D00EC5824 /* ChartMath.swift */,
 				AA25119C2C6D011D00EC5824 /* StepBarChart.swift */,
@@ -167,7 +168,6 @@
 				AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */,
 				AABE4E7C2C6EBC87000B0965 /* WeightDiffBarChart.swift */,
 				AABE4E752C6E4480000B0965 /* WeightLineChart.swift */,
-				AAA144592CBD8F280085277D /* ChartDataUnavailableView.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -220,8 +220,8 @@
 				AA2511992C6D011D00EC5824 /* Components */,
 				AA2511932C6D011D00EC5824 /* Model */,
 				AA2511972C6D011D00EC5824 /* Screens */,
-				AA25119F2C6D011D00EC5824 /* Services */,
 				AAD46E952C654186005F7B8A /* Assets.xcassets */,
+				AA25119F2C6D011D00EC5824 /* Services */,
 				AAD46E972C654186005F7B8A /* Preview Content */,
 			);
 			path = Steps;

@@ -11,22 +11,25 @@ import Charts
 struct StepBarChart: View {
     var chartData: [DateValueChartData]
     
-    var selectedData: DateValueChartData? {
+    private var selectedData: DateValueChartData? {
         ChartHelper.parseSelectedData(from: chartData, in: rawSelectedDate)
+    }
+    
+    private var config: ChartContainerConfiguration {
+        .init(
+            title: "Steps",
+            symbol: "figure.walk",
+            subtitle: "Avg: \(Int(ChartHelper.averageValue(for: chartData))) Steps",
+            context: .steps,
+            isNav: true
+        )
     }
     
     @State private var rawSelectedDate: Date?
     @State private var selectedDay: Date?
     
     var body: some View {
-        
-        ChartContainer(
-            title: "Steps",
-            symbol: "figure.walk",
-            subtitle: "Avg: \(Int(ChartHelper.averageValue(for: chartData))) Steps",
-            context: .steps,
-            isNav: true) {
-            
+        ChartContainer(config: config) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.bar",
