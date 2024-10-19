@@ -9,9 +9,9 @@ import SwiftUI
 import Charts
 
 struct StepPieChart: View {
-    var chartData: [WeekdayChartData]
+    var chartData: [DateValueChartData]
     
-    var selectedWeekday: WeekdayChartData? {
+    var selectedWeekday: DateValueChartData? {
         guard let rawSelectedChartValue else { return nil }
 
         var total = 0.0
@@ -25,20 +25,12 @@ struct StepPieChart: View {
     @State private var selectedDay: Date?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            // Card Header
-            HStack {
-                VStack(alignment: .leading) {
-                    Label("Daily Averages", systemImage: "calendar")
-                        .font(.title3.bold())
-                        .foregroundStyle(.pink)
-                    
-                    Text("Last 28 Days")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-            }
-            .padding(.bottom, 12)
+        ChartContainer(
+            title: "Daily Averages",
+            symbol: "figure.walk",
+            subtitle: "Last 28 Days",
+            context: .steps,
+            isNav: false) {
             
             if chartData.isEmpty {
                 ChartDataUnavailableView(
@@ -92,11 +84,6 @@ struct StepPieChart: View {
                 }
             }
         }
-        .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(Color(.secondarySystemBackground))
-        }
         .sensoryFeedback(.selection, trigger: selectedDay)
         .onChange(of: selectedWeekday) { oldValue, newValue in
             guard let oldValue, let newValue else { return }
@@ -105,9 +92,25 @@ struct StepPieChart: View {
             }
         }
     }
+    
+    
+    private var builtInModifier: some View {
+        Text("Hello, world!")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
+    }
+    
+    private var customModifier: some View {
+        Text("Hello, world!")
+            .frame(.infinite)
+        
+    }
+    
+    
 }
 
 #Preview {
     StepPieChart(chartData: ChartMath.averageWeekdayCount(for: [])) // Replace empty array with MockData.steps to preview working chart
 }
+
 

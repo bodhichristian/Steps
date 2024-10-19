@@ -35,19 +35,16 @@ struct DashboardView: View {
                     switch selectedStat {
                     case .steps:
                         StepBarChart(
-                            selectedStat: selectedStat,
-                            chartData: hkService.stepData
+                            chartData: ChartHelper.convert(data: hkService.stepData)
                         )
                         StepPieChart(
                             chartData: ChartMath.averageWeekdayCount(for: hkService.stepData)
                         )
                     case .weight:
                         WeightLineChart(
-                            selectedStat: selectedStat,
-                            chartData: hkService.weightData
+                            chartData: ChartHelper.convert(data: hkService.weightData)
                         )
                         WeightDiffBarChart(
-                            selectedStat: selectedStat,
                             chartData: ChartMath.averageDailyWeightDiffs(for: hkService.weightDiffData)
                         )
                     }
@@ -56,7 +53,7 @@ struct DashboardView: View {
             .padding()
             .task {
                 do {
-                    //await hkService.addSampleData()
+                    await hkService.addSampleData()
                     try await hkService.fetchStepCount()
                     try await hkService.fetchWeights()
                     try await hkService.fetchWeightForDifferentials()

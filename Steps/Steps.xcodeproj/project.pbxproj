@@ -21,6 +21,8 @@
 		AA2511B22C6D01A100EC5824 /* HealthMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511912C6D011D00EC5824 /* HealthMetric.swift */; };
 		AAA1445A2CBD8F280085277D /* ChartDataUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA144592CBD8F280085277D /* ChartDataUnavailableView.swift */; };
 		AAA144782CBD8F940085277D /* View+InfiniteFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA144772CBD8F940085277D /* View+InfiniteFrame.swift */; };
+		AAA1447A2CC027750085277D /* ChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA144792CC027750085277D /* ChartContainer.swift */; };
+		AAA1447C2CC3ED7E0085277D /* ChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1447B2CC3ED7E0085277D /* ChartHelper.swift */; };
 		AABE4E762C6E4480000B0965 /* WeightLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE4E752C6E4480000B0965 /* WeightLineChart.swift */; };
 		AABE4E792C6E5441000B0965 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE4E782C6E5441000B0965 /* MockData.swift */; };
 		AABE4E7B2C6E7CFC000B0965 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE4E7A2C6E7CFC000B0965 /* AnnotationView.swift */; };
@@ -66,6 +68,8 @@
 		AA2511B32C6D027100EC5824 /* Steps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steps.entitlements; sourceTree = "<group>"; };
 		AAA144592CBD8F280085277D /* ChartDataUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataUnavailableView.swift; sourceTree = "<group>"; };
 		AAA144772CBD8F940085277D /* View+InfiniteFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+InfiniteFrame.swift"; sourceTree = "<group>"; };
+		AAA144792CC027750085277D /* ChartContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContainer.swift; sourceTree = "<group>"; };
+		AAA1447B2CC3ED7E0085277D /* ChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHelper.swift; sourceTree = "<group>"; };
 		AABE4E752C6E4480000B0965 /* WeightLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLineChart.swift; sourceTree = "<group>"; };
 		AABE4E782C6E5441000B0965 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		AABE4E7A2C6E7CFC000B0965 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
@@ -156,8 +160,10 @@
 			children = (
 				AABE4E7A2C6E7CFC000B0965 /* AnnotationView.swift */,
 				AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */,
+				AAA1447B2CC3ED7E0085277D /* ChartHelper.swift */,
 				AA25119B2C6D011D00EC5824 /* ChartMath.swift */,
 				AA25119C2C6D011D00EC5824 /* StepBarChart.swift */,
+				AAA144792CC027750085277D /* ChartContainer.swift */,
 				AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */,
 				AABE4E7C2C6EBC87000B0965 /* WeightDiffBarChart.swift */,
 				AABE4E752C6E4480000B0965 /* WeightLineChart.swift */,
@@ -393,11 +399,13 @@
 				AA2511AF2C6D01A100EC5824 /* DashboardView.swift in Sources */,
 				AA2511B02C6D01A100EC5824 /* BackgroundGradient.swift in Sources */,
 				AA2511B12C6D01A100EC5824 /* HealthDataListView.swift in Sources */,
+				AAA1447C2CC3ED7E0085277D /* ChartHelper.swift in Sources */,
 				AA2511B22C6D01A100EC5824 /* HealthMetric.swift in Sources */,
 				AA2511A32C6D019200EC5824 /* ChartMath.swift in Sources */,
 				AAA1445A2CBD8F280085277D /* ChartDataUnavailableView.swift in Sources */,
 				AA2511A42C6D019200EC5824 /* StepBarChart.swift in Sources */,
 				AA2511A22C6D018B00EC5824 /* ChartDataTypes.swift in Sources */,
+				AAA1447A2CC027750085277D /* ChartContainer.swift in Sources */,
 				AAFC01F92C6D04B4002A2820 /* StepPieChart.swift in Sources */,
 				AAD46E922C654185005F7B8A /* StepsApp.swift in Sources */,
 				AABE4E7D2C6EBC87000B0965 /* WeightDiffBarChart.swift in Sources */,

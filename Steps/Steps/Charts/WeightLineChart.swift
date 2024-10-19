@@ -9,45 +9,27 @@ import SwiftUI
 import Charts
 
 struct WeightLineChart: View {
-    var selectedStat: HealthMetricContext
-    var chartData: [HealthMetric]
+    var chartData: [DateValueChartData]
     
     var minValue: Double {
         chartData.map { $0.value }.min() ?? 0
     }
     
-    var selectedHealthMetric: HealthMetric? {
-        guard let rawSelectedDate else { return nil }
-        
-        return chartData.first {
-            Calendar.current.isDate(rawSelectedDate, inSameDayAs: $0.date)
-        }
+    var selectedData: DateValueChartData? {
+        ChartHelper.parseSelectedData(from: chartData, in: rawSelectedDate)
     }
     
     @State private var rawSelectedDate: Date?
     @State private var selectedDay: Date?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            // Card Header
-            NavigationLink(value: selectedStat) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Label("Weight", systemImage: "figure")
-                            .font(.title3.bold())
-                            .foregroundStyle(.indigo)
-                        
-                        Text("Avg: 175 lbs")
-                            .font(.caption)
-                    }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                }
-                .padding(.bottom, 12)
-            }
-            .foregroundStyle(.secondary)
+        ChartContainer(
+            title: "Weight",
+            symbol: "figure",
+            subtitle: "Avg: 175 lbs",
+            context: .weight,
+            isNav: true) {
+            
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.line.downtrend.xyaxis",
@@ -56,16 +38,15 @@ struct WeightLineChart: View {
                 )
             } else {
                 Chart {
-                    if let selectedHealthMetric {
-                        RuleMark(x: .value("Selected Metric", selectedHealthMetric.date, unit: .day))
+                    if let selectedData {
+                        RuleMark(x: .value("Selected Metric", selectedData.date, unit: .day))
                             .foregroundStyle(.secondary.opacity(0.3))
                             .offset(y: -5)
                             .annotation(
                                 position: .top,
                                 spacing: 0,
                                 overflowResolution: .init(x: .fit(to:.chart), y: .disabled)) {
-                                    AnnotationView(metric: selectedHealthMetric, context: selectedStat)
-                                }
+                                    AnnotationView(data: selectedData, context: .weight)                                }
                     }
                     
                     RuleMark(y: .value("Goal", 167)) // Replace with user choice
@@ -86,7 +67,6 @@ struct WeightLineChart: View {
                             )
                         )
                         
-                        //.interpolationMethod(.catmullRom)
                         LineMark(
                             x: .value("Day", weight.date, unit: .day),
                             y: .value(
@@ -95,7 +75,6 @@ struct WeightLineChart: View {
                             )
                         )
                         .foregroundStyle(.indigo)
-    
                         .symbol(.circle) //                    .interpolationMethod(.catmullRom) is overridden by symbol modifier
                     }
                 }
@@ -117,11 +96,6 @@ struct WeightLineChart: View {
                 }
             }
         }
-        .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(Color(.secondarySystemBackground))
-        }
         .sensoryFeedback(.selection, trigger: selectedDay)
         .onChange(of: rawSelectedDate) { oldValue, newValue in
             if let newValue {
@@ -131,8 +105,10 @@ struct WeightLineChart: View {
             }
         }
     }
+    
+
 }
 
 #Preview {
-    WeightLineChart(selectedStat: .weight, chartData: []) // Replace empty array with MockData.weights to preview chart
+    WeightLineChart(chartData: ChartHelper.convert(data: MockData.weights))
 }
