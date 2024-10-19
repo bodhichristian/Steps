@@ -7,20 +7,22 @@
 
 import SwiftUI
 
-struct ChartContainer<Content: View>: View {
-    
+struct ChartContainerConfiguration {
     let title: String
     let symbol: String
     let subtitle: String
     let context: HealthMetricContext
     let isNav: Bool
-    
+}
+
+struct ChartContainer<Content: View>: View {
+    let config: ChartContainerConfiguration
     @ViewBuilder var content: () -> Content
     
     var body: some View {
         VStack(alignment: .leading) {
             // Card Header
-            if isNav {
+            if config.isNav {
                 navHeaderView
             } else {
                 titleView
@@ -37,7 +39,7 @@ struct ChartContainer<Content: View>: View {
     }
     
     private var navHeaderView: some View {
-        NavigationLink(value: context) {
+        NavigationLink(value: config.context) {
             HStack {
                 titleView
                 Spacer()
@@ -50,11 +52,11 @@ struct ChartContainer<Content: View>: View {
     
     private var titleView: some View {
         VStack(alignment: .leading) {
-            Label(title, systemImage: symbol)
+            Label(config.title, systemImage: config.symbol)
                 .font(.title3.bold())
-                .foregroundStyle(context == .steps ? .pink : .indigo)
+                .foregroundStyle(config.context == .steps ? .pink : .indigo)
             
-            Text(subtitle)
+            Text(config.subtitle)
                 .font(.caption)
         }
     }
@@ -62,14 +64,14 @@ struct ChartContainer<Content: View>: View {
 
 #Preview {
     ChartContainer(
-        title: "Test title",
-        symbol: "figure.walk",
-        subtitle: "Test subtitle",
-        context: .steps,
-        isNav: true
-    ) {
-        Text("Chart goes here.").frame(
-            height: 150
-        )
-    }
+        config: .init(
+            title: "Test Title",
+            symbol: "figure",
+            subtitle: "Test Subtitle",
+            context: .steps,
+            isNav: true)) {
+                Text("Chart goes here.").frame(
+                    height: 150
+                )
+            }
 }
