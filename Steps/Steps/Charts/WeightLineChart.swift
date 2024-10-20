@@ -42,14 +42,7 @@ struct WeightLineChart: View {
             } else {
                 Chart {
                     if let selectedData {
-                        RuleMark(x: .value("Selected Metric", selectedData.date, unit: .day))
-                            .foregroundStyle(.secondary.opacity(0.3))
-                            .offset(y: -5)
-                            .annotation(
-                                position: .top,
-                                spacing: 0,
-                                overflowResolution: .init(x: .fit(to:.chart), y: .disabled)) {
-                                    AnnotationView(data: selectedData, context: .weight)                                }
+                        ChartAnnotation(data: selectedData, context: .weight)
                     }
                     
                     RuleMark(y: .value("Goal", 167)) // Replace with user choice
@@ -109,7 +102,7 @@ struct WeightLineChart: View {
         }
     }
     
-
+    
 }
 
 #Preview {
