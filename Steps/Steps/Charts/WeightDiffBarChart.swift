@@ -9,40 +9,27 @@ import SwiftUI
 import Charts
 
 struct WeightDiffBarChart: View {
-    var selectedStat: HealthMetricContext
-    var chartData: [WeekdayChartData]
+    var chartData: [DateValueChartData]
     
-    var selectedData: WeekdayChartData? {
-        guard let rawSelectedDate else { return nil }
-        
-        return chartData.first {
-            Calendar.current.isDate(rawSelectedDate, inSameDayAs: $0.date)
-        }
+    private var selectedData: DateValueChartData? {
+        ChartHelper.parseSelectedData(from: chartData, in: rawSelectedDate)
+    }
+    
+    private var config: ChartContainerConfiguration {
+        .init(
+            title: "Weight",
+            symbol: "calendar",
+            subtitle: "Last 28 Days",
+            context: .weight,
+            isNav: true
+        )
     }
     
     @State private var rawSelectedDate: Date?
     @State private var selectedDay: Date?
     
     var body: some View {
-        // Steps Card
-        VStack(alignment: .leading) {
-            // Card Header
-                HStack {
-                    VStack(alignment: .leading) {
-                
-                        Label("Average Daily Change", systemImage: "calendar.circle")
-                            .font(.title3.bold())
-                            .foregroundStyle(.indigo)
-                        
-                        Text("Last 28 Days")
-                            .font(.caption)
-                    }
-                    
-                    Spacer()
-                }
-                .padding(.bottom, 12)
-            .foregroundStyle(.secondary)
-            
+        ChartContainer(config: config) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.bar",
@@ -52,15 +39,7 @@ struct WeightDiffBarChart: View {
             } else {
                 Chart {
                     if let selectedData {
-                        RuleMark(x: .value("Selected Metric", selectedData.date, unit: .day))
-                            .foregroundStyle(.secondary.opacity(0.3))
-                            .offset(y: -5)
-                            .annotation(
-                                position: .top,
-                                spacing: 0,
-                                overflowResolution: .init(x: .fit(to:.chart), y: .disabled)) {
-                                    AnnotationView(weekdayChartData: selectedData, context: selectedStat)
-                                }
+                        ChartAnnotation(data: selectedData, context: .weight)
                     }
                     
                     ForEach(chartData) { weightDiff in
@@ -89,11 +68,6 @@ struct WeightDiffBarChart: View {
                 }
             }
         }
-        .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(Color(.secondarySystemBackground))
-        }
         .sensoryFeedback(.selection, trigger: selectedDay)
         .onChange(of: rawSelectedDate) { oldValue, newValue in
             if let newValue {
@@ -106,5 +80,5 @@ struct WeightDiffBarChart: View {
 }
 
 #Preview {
-    WeightDiffBarChart(selectedStat: .weight, chartData: []) // Replace empty array with MockData.weightDiffs to preview chart
+    WeightDiffBarChart(chartData: MockData.weightDiffs) // Replace empty array with MockData.weightDiffs to preview chart
 }
