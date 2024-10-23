@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -81,6 +81,10 @@
 		AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA01A3A52CC7C00A0037D613 /* Errors */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Errors; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AAD46E8B2C654185005F7B8A /* Frameworks */ = {
@@ -177,6 +181,7 @@
 		AABE4E772C6E5402000B0965 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AA01A3A52CC7C00A0037D613 /* Errors */,
 				AA2511902C6D011D00EC5824 /* Extensions */,
 				AABE4E782C6E5441000B0965 /* MockData.swift */,
 			);
@@ -210,9 +215,9 @@
 				AA2511B32C6D027100EC5824 /* Steps.entitlements */,
 				AAD46E912C654185005F7B8A /* StepsApp.swift */,
 				AABE4E772C6E5402000B0965 /* Utilities */,
+				AA2511932C6D011D00EC5824 /* Model */,
 				AA25119D2C6D011D00EC5824 /* Charts */,
 				AA2511992C6D011D00EC5824 /* Components */,
-				AA2511932C6D011D00EC5824 /* Model */,
 				AA2511972C6D011D00EC5824 /* Screens */,
 				AA25119F2C6D011D00EC5824 /* Services */,
 				AAD46E952C654186005F7B8A /* Assets.xcassets */,
@@ -260,6 +265,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA01A3A52CC7C00A0037D613 /* Errors */,
 			);
 			name = Steps;
 			packageProductDependencies = (

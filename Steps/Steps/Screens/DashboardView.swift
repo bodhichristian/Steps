@@ -16,10 +16,6 @@ struct DashboardView: View {
     @State private var showingAlert = false
     @State private var fetchError: STError = .noData
     
-    var stepsSelected: Bool {
-        selectedStat == .steps
-    }
-    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -55,20 +51,7 @@ struct DashboardView: View {
             }
             .padding()
             .task {
-                do {
-                    //await hkService.addSampleData()
-                    try await hkService.fetchStepCount()
-                    try await hkService.fetchWeights()
-                    try await hkService.fetchWeightForDifferentials()
-                } catch STError.authNotDetermined {
-                    showingPrimer = true
-                } catch STError.noData {
-                    fetchError = .noData
-                    showingAlert = true
-                } catch {
-                    fetchError = .unableToCompleteRequest
-                    showingAlert = true
-                }
+                fetchHealthData()
             }
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self) { metric in
@@ -80,12 +63,40 @@ struct DashboardView: View {
                 Text(fetchError.failureReason)
             }
             .sheet(isPresented: $showingPrimer) {
-                // fetch health data
+                // When user allows Health access, fetch health data
+                fetchHealthData()
             } content: {
                 HKPermissionPrimerView()
             }
-            .tint(stepsSelected ? .pink : .indigo)
+            .tint(selectedStat == .steps ? .pink : .indigo)
             
+        }
+    }
+    
+    private func fetchHealthData() {
+        Task {
+            do {
+                // Uncomment below line to add sample data to Health app on simulator
+                // await hkService.addSampleData()
+                                 
+                async let steps = hkService.fetchStepCount()
+                async let weights = hkService.fetchWeights(daysBack: 28)
+                async let weightDiffs = hkService.fetchWeights(daysBack: 29)
+                
+                let results = try await (steps, weights, weightDiffs)
+                
+                hkService.stepData = results.0
+                hkService.weightData = results.1
+                hkService.weightDiffData = results.2
+            } catch STError.authNotDetermined {
+                showingPrimer = true
+            } catch STError.noData {
+                fetchError = .noData
+                showingAlert = true
+            } catch {
+                fetchError = .unableToCompleteRequest
+                showingAlert = true
+            }
         }
     }
 }
