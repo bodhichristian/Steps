@@ -30,22 +30,11 @@ struct DashboardView: View {
                     
                     switch selectedStat {
                     case .steps:
-                        StepBarChart(
-                            selectedStat: selectedStat,
-                            chartData: hkService.stepData
-                        )
-                        StepPieChart(
-                            chartData: ChartMath.averageWeekdayCount(for: hkService.stepData)
-                        )
+                        StepBarChart(chartData: ChartHelper.convert(data: hkService.stepData))
+                        StepPieChart(chartData: ChartMath.averageWeekdayCount(for: hkService.stepData))
                     case .weight:
-                        WeightLineChart(
-                            selectedStat: selectedStat,
-                            chartData: hkService.weightData
-                        )
-                        WeightDiffBarChart(
-                            selectedStat: selectedStat,
-                            chartData: ChartMath.averageDailyWeightDiffs(for: hkService.weightDiffData)
-                        )
+                        WeightLineChart(chartData: ChartHelper.convert(data: hkService.weightData))
+                        WeightDiffBarChart(chartData: ChartMath.averageDailyWeightDiffs(for: hkService.weightDiffData))
                     }
                 }
             }
@@ -62,7 +51,7 @@ struct DashboardView: View {
             } message: { fetchError in
                 Text(fetchError.failureReason)
             }
-            .sheet(isPresented: $showingPrimer) {
+            .fullScreenCover(isPresented: $showingPrimer) {
                 // When user allows Health access, fetch health data
                 fetchHealthData()
             } content: {
@@ -83,11 +72,9 @@ struct DashboardView: View {
                 async let weights = hkService.fetchWeights(daysBack: 28)
                 async let weightDiffs = hkService.fetchWeights(daysBack: 29)
                 
-                let results = try await (steps, weights, weightDiffs)
-                
-                hkService.stepData = results.0
-                hkService.weightData = results.1
-                hkService.weightDiffData = results.2
+                hkService.stepData = try await steps
+                hkService.weightData = try await weights
+                hkService.weightDiffData = try await weightDiffs
             } catch STError.authNotDetermined {
                 showingPrimer = true
             } catch STError.noData {
