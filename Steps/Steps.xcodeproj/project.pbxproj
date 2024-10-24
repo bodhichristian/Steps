@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA01A3A92CCA95D50037D613 /* ChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01A3A82CCA95D50037D613 /* ChartContainer.swift */; };
 		AA01A3AB2CCA968F0037D613 /* ChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01A3AA2CCA968F0037D613 /* ChartHelper.swift */; };
+		AA01A3AD2CCAE8A70037D613 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01A3AC2CCAE8A70037D613 /* Array+Ext.swift */; };
 		AA1DB0452C65431200C41F37 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AA1DB0442C65431200C41F37 /* Algorithms */; };
 		AA2511A22C6D018B00EC5824 /* ChartDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25119A2C6D011D00EC5824 /* ChartDataTypes.swift */; };
 		AA2511A32C6D019200EC5824 /* ChartMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25119B2C6D011D00EC5824 /* ChartMath.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		AA01A3A82CCA95D50037D613 /* ChartContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContainer.swift; sourceTree = "<group>"; };
 		AA01A3AA2CCA968F0037D613 /* ChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHelper.swift; sourceTree = "<group>"; };
+		AA01A3AC2CCAE8A70037D613 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		AA25118F2C6D011D00EC5824 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		AA2511912C6D011D00EC5824 /* HealthMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetric.swift; sourceTree = "<group>"; };
 		AA2511922C6D011D00EC5824 /* HealthMetricContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricContext.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		AA2511902C6D011D00EC5824 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AA01A3AC2CCAE8A70037D613 /* Array+Ext.swift */,
 				AA25118F2C6D011D00EC5824 /* Date+Ext.swift */,
 				AAA144772CBD8F940085277D /* View+InfiniteFrame.swift */,
 			);
@@ -406,6 +409,7 @@
 				AABE4E7B2C6E7CFC000B0965 /* ChartAnnotationView.swift in Sources */,
 				AAA144782CBD8F940085277D /* View+InfiniteFrame.swift in Sources */,
 				AA2511AE2C6D01A100EC5824 /* HKPermissionPrimerView.swift in Sources */,
+				AA01A3AD2CCAE8A70037D613 /* Array+Ext.swift in Sources */,
 				AA2511AF2C6D01A100EC5824 /* DashboardView.swift in Sources */,
 				AA2511B02C6D01A100EC5824 /* BackgroundGradient.swift in Sources */,
 				AA2511B12C6D01A100EC5824 /* HealthDataListView.swift in Sources */,

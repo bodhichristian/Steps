@@ -18,12 +18,20 @@ struct WeightLineChart: View {
     private var minValue: Double {
         chartData.map { $0.value }.min() ?? 0
     }
+    
+    private var averageWeight: Double {
+        ChartHelper.averageValue(for: chartData)
+    }
+    
+    private var subtitle: String {
+        "Avg: \(averageWeight.formatted(.number.precision(.fractionLength(1)))) lbs"
+    }
 
     private var config: ChartContainerConfiguration {
         .init(
             title: "Weight",
             symbol: "figure",
-            subtitle: "Avg: \(ChartHelper.averageValue(for: chartData))",
+            subtitle: subtitle,
             context: .weight,
             isNav: true
         )
@@ -46,7 +54,7 @@ struct WeightLineChart: View {
                         ChartAnnotationView(data: selectedData, context: .weight)
                     }
 
-                    RuleMark(y: .value("Goal", 155))
+                    RuleMark(y: .value("Average", averageWeight))
                         .foregroundStyle(.mint)
                         .lineStyle(.init(lineWidth: 1, dash: [5]))
 

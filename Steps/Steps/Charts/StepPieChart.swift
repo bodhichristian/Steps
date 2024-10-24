@@ -10,14 +10,13 @@ import Charts
 
 struct StepPieChart: View {
     let chartData: [DateValueChartData]
-
+    
     private var selectedWeekday: DateValueChartData? {
-        guard let rawSelectedChartValue else { return nil }
         var total = 0.0
-
+        
         return chartData.first {
             total += $0.value
-            return rawSelectedChartValue <= total
+            return lastSelectedValue <= total
         }
     }
     
@@ -32,8 +31,9 @@ struct StepPieChart: View {
     }
     
     @State private var rawSelectedChartValue: Double? = 0
+    @State private var lastSelectedValue: Double = 0
     @State private var selectedDay: Date?
-
+    
     var body: some View {
         ChartContainer(config: config) {
             if chartData.isEmpty {
@@ -57,6 +57,16 @@ struct StepPieChart: View {
                     }
                 }
                 .chartAngleSelection(value: $rawSelectedChartValue.animation(.easeInOut))
+                .onChange(of: rawSelectedChartValue) { oldValue, newValue in
+                    withAnimation(.easeInOut) {
+                            guard let newValue else {
+                                lastSelectedValue = oldValue ?? 0
+                                return
+                            }
+                            
+                            lastSelectedValue = newValue
+                        }
+                }
                 .frame(height: 240)
                 .chartBackground { proxy in
                     GeometryReader { geo in
@@ -66,8 +76,9 @@ struct StepPieChart: View {
                                 VStack {
                                     Text(selectedWeekday.date.weekdayTitle)
                                         .font(.title3.bold())
-                                        .contentTransition(.identity)
-
+                                        .animation(.none)
+                                    
+                                    
                                     Text(selectedWeekday.value, format: .number.precision(.fractionLength(0)))
                                         .fontWeight(.medium)
                                         .foregroundStyle(.secondary)

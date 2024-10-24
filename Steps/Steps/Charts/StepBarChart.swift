@@ -15,11 +15,15 @@ struct StepBarChart: View {
         ChartHelper.parseSelectedData(from: chartData, in:  rawSelectedDate)
     }
     
+    private var averageSteps: Int {
+        Int(chartData.map { $0.value }.average)
+    }
+    
     private var config: ChartContainerConfiguration {
         .init(
             title: "Steps",
             symbol: "figure.walk",
-            subtitle: "Avg: \(Int(ChartHelper.averageValue(for: chartData))) steps",
+            subtitle: "Avg: \(averageSteps) steps",
             context: .steps,
             isNav: true
         )
@@ -42,7 +46,7 @@ struct StepBarChart: View {
                         ChartAnnotationView(data: selectedData, context: .steps)
                     }
 
-                    RuleMark(y: .value("Average", ChartHelper.averageValue(for: chartData)))
+                    RuleMark(y: .value("Average", averageSteps))
                         .foregroundStyle(Color.secondary)
                         .lineStyle(.init(lineWidth: 1, dash: [5]))
 

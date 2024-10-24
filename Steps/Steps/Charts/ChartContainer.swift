@@ -48,10 +48,11 @@ struct ChartContainer<Content: View>: View {
     }
 
     var titleView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             Label(config.title, systemImage: config.symbol)
                 .font(.title3.bold())
                 .foregroundStyle(config.context == .steps ? .pink : .indigo)
+                .frame(height: 30, alignment: .top)
 
             Text(config.subtitle)
                 .font(.caption)
