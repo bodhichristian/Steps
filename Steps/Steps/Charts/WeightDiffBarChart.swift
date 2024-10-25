@@ -33,11 +33,15 @@ struct WeightDiffBarChart: View {
                     }
 
                     ForEach(chartData) { weightDiff in
-                        BarMark(
-                            x: .value("Date", weightDiff.date, unit: .day),
-                            y: .value("Weight Diff", weightDiff.value)
-                        )
-                        .foregroundStyle(weightDiff.value >= 0 ? Color.indigo.gradient : Color.mint.gradient)
+                        Plot {
+                            BarMark(
+                                x: .value("Date", weightDiff.date, unit: .day),
+                                y: .value("Weight Diff", weightDiff.value)
+                            )
+                            .foregroundStyle(weightDiff.value >= 0 ? Color.indigo.gradient : Color.mint.gradient)
+                        }
+                        .accessibilityLabel(weightDiff.date.weekdayTitle)
+                        .accessibilityValue("\(weightDiff.value.formatted(.number.precision(.fractionLength(1)).sign(strategy: .always()))) pounds") // always share whether value is positive or negative
                     }
                 }
                 .frame(height: 150)

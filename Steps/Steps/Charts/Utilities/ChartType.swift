@@ -70,4 +70,17 @@ enum ChartType {
             false
         }
     }
+    
+    var accessibilityLabel: String {
+        switch self {
+        case .stepBar(let average):
+            "Step Count Bar Chart - Last 28 Days. Daily average: \(average) steps."
+        case .stepWeekdayPie:
+            "Step Count Pie Chart - Daily Averages, last 28 Days. "
+        case .weightLine(let average):
+            "Weight Line Chart - Last 28 Days. Daily Average: \(average) pounds."
+        case .weightDiffBar:
+            "Weight Differences Chart - Average daily difference, last 28 Days. "
+        }
+    }
 }

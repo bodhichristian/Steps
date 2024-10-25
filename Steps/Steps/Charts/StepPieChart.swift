@@ -44,6 +44,8 @@ struct StepPieChart: View {
                         .foregroundStyle(.pink.gradient)
                         .cornerRadius(6)
                         .opacity(selectedWeekday?.date.weekdayInt == weekday.date.weekdayInt ? 1.0 : 0.3)
+                        .accessibilityLabel(weekday.date.weekdayTitle)
+                        .accessibilityValue("\(weekday.value) steps")
                     }
                 }
                 .chartAngleSelection(value: $rawSelectedChartValue.animation(.easeInOut))
@@ -75,6 +77,7 @@ struct StepPieChart: View {
                                         .contentTransition(.numericText())
                                 }
                                 .position(x: frame.midX, y: frame.midY)
+                                .accessibilityHidden(true)
                             }
                         }
                     }

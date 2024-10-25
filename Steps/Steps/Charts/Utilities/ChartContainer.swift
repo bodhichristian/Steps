@@ -17,7 +17,7 @@ struct ChartContainer<Content: View>: View {
             if chartType.isNav {
                 navigationLinkView
             } else {
-                titleView
+                headerView
                     .foregroundStyle(.secondary)
                     .padding(.bottom, 12)
             }
@@ -31,16 +31,17 @@ struct ChartContainer<Content: View>: View {
     var navigationLinkView: some View {
         NavigationLink(value: chartType.context) {
             HStack {
-                titleView
+                headerView
                 Spacer()
                 Image(systemName: "chevron.right")
             }
         }
         .foregroundStyle(.secondary)
         .padding(.bottom, 12)
+        .accessibilityHint("Tap for data in list view")
     }
 
-    var titleView: some View {
+    var headerView: some View {
         VStack(alignment: .leading, spacing: 0) {
             Label(chartType.title, systemImage: chartType.symbol)
                 .font(.title3.bold())
@@ -50,6 +51,10 @@ struct ChartContainer<Content: View>: View {
             Text(chartType.subtitle)
                 .font(.caption)
         }
+        .accessibilityAddTraits(.isHeader) // Treat as header
+        .accessibilityElement(children: .ignore) // Ignore children
+        .accessibilityLabel(chartType.accessibilityLabel) // Custom label
+        
     }
 }
 
