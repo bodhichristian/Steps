@@ -20,7 +20,7 @@ struct WeightLineChart: View {
     }
     
     private var averageWeight: Double {
-        ChartHelper.averageValue(for: chartData)
+        chartData.map { $0.value }.average
     }
     
     @State private var rawSelectedDate: Date?

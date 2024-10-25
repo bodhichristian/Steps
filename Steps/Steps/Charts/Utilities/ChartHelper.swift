@@ -9,16 +9,19 @@ import Foundation
 import Algorithms
 
 struct ChartHelper {
+    /// Convert an array of ``HealthMetric`` to an array of ``DateValueChartData`` for ease of use in a SwiftUI Chart.
+    ///
+    /// - Parameter data: An array of step, weight, or other type of HealthKit data
+    /// - Returns: Array of DateValueChartData
     static func convert(data: [HealthMetric]) -> [DateValueChartData] {
         data.map { .init(date: $0.date, value: $0.value)}
     }
-
-    static func averageValue(for data: [DateValueChartData]) -> Double {
-        guard !data.isEmpty else { return 0 }
-        let totalSteps = data.reduce(0) { $0 + $1.value }
-        return totalSteps/Double(data.count)
-    }
-
+    
+    /// Find the first piece of ``DateValueChartData`` whose date matches the provided date.
+    /// - Parameters:
+    ///   - data: An array of ``DateValueChartData``
+    ///   - selectedDate: Date to compare against array of data
+    /// - Returns: An optional DateValueChartData
     static func parseSelectedData(from data: [DateValueChartData], in selectedDate: Date?) -> DateValueChartData? {
         guard let selectedDate else { return nil }
         return data.first {
@@ -26,6 +29,11 @@ struct ChartHelper {
         }
     }
     
+    /// Get average values from a collection of HealthKit data, grouped by day of the week.
+    ///
+    ///  Uses a single digit representation of the day of the week to group data by weekday. Calculates the averages of each of the chunks (weekdays).
+    /// - Parameter metric: An array of ``HealthMetric`` steps
+    /// - Returns: An array of DateValueChartData
     static func averageWeekdayCount(for metric: [HealthMetric]) -> [DateValueChartData] {
         
         let sortedByWeekday = metric.sorted { $0.date.weekdayInt < $1.date.weekdayInt }
@@ -44,6 +52,11 @@ struct ChartHelper {
         return weekdayChartData
     }
     
+    /// Get average differences in weight from day to day.
+    ///
+    ///  Uses a single digit representation of the day of the week to group data by weekday. Calculates the averages of each of the chunks (weekdays).
+    /// - Parameter metric: An array of ``HealthMetric`` weights
+    /// - Returns: An array of DateValueChartData
     static func averageDailyWeightDiffs(for weights: [HealthMetric]) ->[DateValueChartData] {
         var diffValues: [(date: Date, value: Double)] = []
         
