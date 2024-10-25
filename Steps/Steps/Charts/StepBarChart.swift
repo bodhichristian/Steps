@@ -19,21 +19,11 @@ struct StepBarChart: View {
         Int(chartData.map { $0.value }.average)
     }
     
-    private var config: ChartContainerConfiguration {
-        .init(
-            title: "Steps",
-            symbol: "figure.walk",
-            subtitle: "Avg: \(averageSteps) steps",
-            context: .steps,
-            isNav: true
-        )
-    }
-    
     @State private var rawSelectedDate: Date?
     @State private var selectedDay: Date?
 
     var body: some View {
-        ChartContainer(config: config) {
+        ChartContainer(chartType: .stepBar(average: averageSteps)) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.bar",

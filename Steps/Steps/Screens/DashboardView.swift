@@ -65,9 +65,6 @@ struct DashboardView: View {
     private func fetchHealthData() {
         Task {
             do {
-                // Uncomment below line to add sample data to Health app on simulator
-                // await hkService.addSampleData()
-                                 
                 async let steps = hkService.fetchStepCount()
                 async let weights = hkService.fetchWeights(daysBack: 28)
                 async let weightDiffs = hkService.fetchWeights(daysBack: 29)
@@ -75,6 +72,7 @@ struct DashboardView: View {
                 hkService.stepData = try await steps
                 hkService.weightData = try await weights
                 hkService.weightDiffData = try await weightDiffs
+                
             } catch STError.authNotDetermined {
                 showingPrimer = true
             } catch STError.noData {

@@ -8,7 +8,6 @@
 import Foundation
 
 struct MockData {
-    
     static var steps: [HealthMetric] {
         var array: [HealthMetric] = []
         

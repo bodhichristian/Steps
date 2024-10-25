@@ -20,22 +20,12 @@ struct StepPieChart: View {
         }
     }
     
-    private var config: ChartContainerConfiguration {
-        .init(
-            title: "Averages",
-            symbol: "calendar",
-            subtitle: "Last 28 Days",
-            context: .steps,
-            isNav: false
-        )
-    }
-    
     @State private var rawSelectedChartValue: Double? = 0
     @State private var lastSelectedValue: Double = 0
     @State private var selectedDay: Date?
     
     var body: some View {
-        ChartContainer(config: config) {
+        ChartContainer(chartType: .stepWeekdayPie) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.pie",

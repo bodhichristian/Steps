@@ -8,7 +8,7 @@
 import Foundation
 
 extension Array where Element == Double {
-    // extend Array when it is a collection of doubles
+    // extend Array of type Double
     var average: Double {
         guard !self.isEmpty else { return 0 } // guard against an empty array
         let total = self.reduce(0, +) // get the sum of element values

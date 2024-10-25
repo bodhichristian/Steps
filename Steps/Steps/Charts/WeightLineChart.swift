@@ -23,25 +23,11 @@ struct WeightLineChart: View {
         ChartHelper.averageValue(for: chartData)
     }
     
-    private var subtitle: String {
-        "Avg: \(averageWeight.formatted(.number.precision(.fractionLength(1)))) lbs"
-    }
-
-    private var config: ChartContainerConfiguration {
-        .init(
-            title: "Weight",
-            symbol: "figure",
-            subtitle: subtitle,
-            context: .weight,
-            isNav: true
-        )
-    }
-    
     @State private var rawSelectedDate: Date?
     @State private var selectedDay: Date?
     
     var body: some View {
-        ChartContainer(config: config) {
+        ChartContainer(chartType: .weightLine(average: averageWeight)) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.line.downtrend.xyaxis",

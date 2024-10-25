@@ -7,21 +7,14 @@
 
 import SwiftUI
 
-struct ChartContainerConfiguration {
-    let title: String
-    let symbol: String
-    let subtitle: String
-    let context: HealthMetricContext
-    let isNav: Bool
-}
-
 struct ChartContainer<Content: View>: View {
-    let config: ChartContainerConfiguration
+    let chartType: ChartType
+    
     @ViewBuilder var content: () -> Content
 
     var body: some View {
         VStack(alignment: .leading) {
-            if config.isNav {
+            if chartType.isNav {
                 navigationLinkView
             } else {
                 titleView
@@ -36,7 +29,7 @@ struct ChartContainer<Content: View>: View {
     }
 
     var navigationLinkView: some View {
-        NavigationLink(value: config.context) {
+        NavigationLink(value: chartType.context) {
             HStack {
                 titleView
                 Spacer()
@@ -49,27 +42,19 @@ struct ChartContainer<Content: View>: View {
 
     var titleView: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Label(config.title, systemImage: config.symbol)
+            Label(chartType.title, systemImage: chartType.symbol)
                 .font(.title3.bold())
-                .foregroundStyle(config.context == .steps ? .pink : .indigo)
+                .foregroundStyle(chartType.context == .steps ? .pink : .indigo)
                 .frame(height: 30, alignment: .top)
 
-            Text(config.subtitle)
+            Text(chartType.subtitle)
                 .font(.caption)
         }
     }
 }
 
 #Preview {
-    ChartContainer(
-        config: .init(
-            title: "Test Title",
-            symbol: "figure",
-            subtitle: "Test Subtitle",
-            context: .steps,
-            isNav: true
-        )
-    ) {
+    ChartContainer(chartType: .stepWeekdayPie) {
         Text("Chart Goes Here")
             .frame(minHeight: 150)
     }

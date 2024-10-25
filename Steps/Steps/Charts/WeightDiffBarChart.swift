@@ -15,21 +15,11 @@ struct WeightDiffBarChart: View {
         ChartHelper.parseSelectedData(from: chartData, in:  rawSelectedDate)
     }
     
-    private var config: ChartContainerConfiguration {
-        .init(
-            title: "Average Daily Change",
-            symbol: "figure",
-            subtitle: "Last 28 Days",
-            context: .weight,
-            isNav: false
-        )
-    }
-    
     @State private var rawSelectedDate: Date?
     @State private var selectedDay: Date?
     
     var body: some View {
-        ChartContainer(config: config) {
+        ChartContainer(chartType: .weightDiffBar) {
             if chartData.isEmpty {
                 ChartDataUnavailableView(
                     symbolName: "chart.bar",
