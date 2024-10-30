@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,13 @@
 		AA2511B02C6D01A100EC5824 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511982C6D011D00EC5824 /* BackgroundGradient.swift */; };
 		AA2511B12C6D01A100EC5824 /* HealthDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511952C6D011D00EC5824 /* HealthDataListView.swift */; };
 		AA2511B22C6D01A100EC5824 /* HealthMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2511912C6D011D00EC5824 /* HealthMetric.swift */; };
+		AA8795CA2CD2A2BF004D817E /* ChartAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795C32CD2A2BF004D817E /* ChartAnnotationView.swift */; };
+		AA8795CB2CD2A2BF004D817E /* ChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795C42CD2A2BF004D817E /* ChartContainer.swift */; };
+		AA8795CC2CD2A2BF004D817E /* ChartDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795C52CD2A2BF004D817E /* ChartDataTypes.swift */; };
+		AA8795CD2CD2A2BF004D817E /* ChartDataUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795C62CD2A2BF004D817E /* ChartDataUnavailableView.swift */; };
+		AA8795CE2CD2A2BF004D817E /* ChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795C72CD2A2BF004D817E /* ChartHelper.swift */; };
+		AA8795CF2CD2A2BF004D817E /* ChartType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795C82CD2A2BF004D817E /* ChartType.swift */; };
+		AA8795D22CD2A2C6004D817E /* STError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8795D02CD2A2C6004D817E /* STError.swift */; };
 		AAA144782CBD8F940085277D /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA144772CBD8F940085277D /* View+Ext.swift */; };
 		AABE4E762C6E4480000B0965 /* WeightLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE4E752C6E4480000B0965 /* WeightLineChart.swift */; };
 		AABE4E792C6E5441000B0965 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE4E782C6E5441000B0965 /* MockData.swift */; };
@@ -60,6 +67,13 @@
 		AA25119C2C6D011D00EC5824 /* StepBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBarChart.swift; sourceTree = "<group>"; };
 		AA25119E2C6D011D00EC5824 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
 		AA2511B32C6D027100EC5824 /* Steps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steps.entitlements; sourceTree = "<group>"; };
+		AA8795C32CD2A2BF004D817E /* ChartAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnnotationView.swift; sourceTree = "<group>"; };
+		AA8795C42CD2A2BF004D817E /* ChartContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContainer.swift; sourceTree = "<group>"; };
+		AA8795C52CD2A2BF004D817E /* ChartDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataTypes.swift; sourceTree = "<group>"; };
+		AA8795C62CD2A2BF004D817E /* ChartDataUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataUnavailableView.swift; sourceTree = "<group>"; };
+		AA8795C72CD2A2BF004D817E /* ChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHelper.swift; sourceTree = "<group>"; };
+		AA8795C82CD2A2BF004D817E /* ChartType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartType.swift; sourceTree = "<group>"; };
+		AA8795D02CD2A2C6004D817E /* STError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STError.swift; sourceTree = "<group>"; };
 		AAA144772CBD8F940085277D /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		AABE4E752C6E4480000B0965 /* WeightLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLineChart.swift; sourceTree = "<group>"; };
 		AABE4E782C6E5441000B0965 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -75,11 +89,6 @@
 		AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		AA01A3A52CC7C00A0037D613 /* Errors */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Errors; sourceTree = "<group>"; };
-		AA01A3AE2CCAEE640037D613 /* Utilities */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Utilities; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AAD46E8B2C654185005F7B8A /* Frameworks */ = {
@@ -155,7 +164,7 @@
 		AA25119D2C6D011D00EC5824 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				AA01A3AE2CCAEE640037D613 /* Utilities */,
+				AA8795C92CD2A2BF004D817E /* Utilities */,
 				AA25119C2C6D011D00EC5824 /* StepBarChart.swift */,
 				AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */,
 				AABE4E7C2C6EBC87000B0965 /* WeightDiffBarChart.swift */,
@@ -172,10 +181,31 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		AA8795C92CD2A2BF004D817E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AA8795C32CD2A2BF004D817E /* ChartAnnotationView.swift */,
+				AA8795C42CD2A2BF004D817E /* ChartContainer.swift */,
+				AA8795C52CD2A2BF004D817E /* ChartDataTypes.swift */,
+				AA8795C62CD2A2BF004D817E /* ChartDataUnavailableView.swift */,
+				AA8795C72CD2A2BF004D817E /* ChartHelper.swift */,
+				AA8795C82CD2A2BF004D817E /* ChartType.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AA8795D12CD2A2C6004D817E /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				AA8795D02CD2A2C6004D817E /* STError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		AABE4E772C6E5402000B0965 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AA01A3A52CC7C00A0037D613 /* Errors */,
+				AA8795D12CD2A2C6004D817E /* Errors */,
 				AA2511902C6D011D00EC5824 /* Extensions */,
 			);
 			path = Utilities;
@@ -258,10 +288,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				AA01A3A52CC7C00A0037D613 /* Errors */,
-				AA01A3AE2CCAEE640037D613 /* Utilities */,
 			);
 			name = Steps;
 			packageProductDependencies = (
@@ -395,7 +421,14 @@
 				AA2511AF2C6D01A100EC5824 /* DashboardView.swift in Sources */,
 				AA2511B02C6D01A100EC5824 /* BackgroundGradient.swift in Sources */,
 				AA2511B12C6D01A100EC5824 /* HealthDataListView.swift in Sources */,
+				AA8795CA2CD2A2BF004D817E /* ChartAnnotationView.swift in Sources */,
+				AA8795CB2CD2A2BF004D817E /* ChartContainer.swift in Sources */,
+				AA8795CC2CD2A2BF004D817E /* ChartDataTypes.swift in Sources */,
+				AA8795CD2CD2A2BF004D817E /* ChartDataUnavailableView.swift in Sources */,
+				AA8795CE2CD2A2BF004D817E /* ChartHelper.swift in Sources */,
+				AA8795CF2CD2A2BF004D817E /* ChartType.swift in Sources */,
 				AA2511B22C6D01A100EC5824 /* HealthMetric.swift in Sources */,
+				AA8795D22CD2A2C6004D817E /* STError.swift in Sources */,
 				AA2511A42C6D019200EC5824 /* StepBarChart.swift in Sources */,
 				AAFC01F92C6D04B4002A2820 /* StepPieChart.swift in Sources */,
 				AAD46E922C654185005F7B8A /* StepsApp.swift in Sources */,
