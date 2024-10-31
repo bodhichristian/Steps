@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct StepsApp: App {
     let hkService = HealthKitService()
+    let hkDataStore = HealthKitData()
     
     var body: some Scene {
         WindowGroup {
             DashboardView()
+                .environment(hkDataStore)
                 .environment(hkService)
         }
     }

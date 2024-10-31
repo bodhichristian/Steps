@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HealthDataListView: View {
     @Environment(HealthKitService.self) private var hkService
+    @Environment(HealthKitData.self) private var hkData
     @State private var isAddingData: Bool = false
     @State private var date: Date = .now
     @State private var inputValue: String = ""
@@ -18,7 +19,7 @@ struct HealthDataListView: View {
     var metric: HealthMetricContext
     
     var listData: [HealthMetric] {
-        metric == .steps ? hkService.stepData : hkService.weightData
+        metric == .steps ? hkData.steps : hkData.weights
     }
     var body: some View {
         List(listData.reversed()) { data in
@@ -94,15 +95,15 @@ struct HealthDataListView: View {
             do {
                 if metric == .steps {
                     try await hkService.addStepData(for: date, value: value)
-                    hkService.stepData = try await hkService.fetchStepCount()
+                    hkData.steps = try await hkService.fetchStepCount()
                     isAddingData = false
                 } else {
                     try await hkService.addWeightData(for: date, value: Double(inputValue)!)
                     async let weights = hkService.fetchWeights(daysBack: 28)
                     async let weightDiffs = hkService.fetchWeights(daysBack: 29)
                     
-                    hkService.weightData = try await weights
-                    hkService.weightDiffData = try await weightDiffs
+                    hkData.weights = try await weights
+                    hkData.weightDiffs = try await weightDiffs
                 }
                 
             } catch STError.sharingDenied(let quantityType) {

@@ -9,8 +9,8 @@ import SwiftUI
 import Charts
 
 struct DashboardView: View {
-    
     @Environment(HealthKitService.self) var hkService
+    @Environment(HealthKitData.self) var hkData
     @State private var showingPrimer = false
     @State private var selectedStat: HealthMetricContext = .steps
     @State private var showingAlert = false
@@ -30,11 +30,11 @@ struct DashboardView: View {
                     
                     switch selectedStat {
                     case .steps:
-                        StepBarChart(chartData: ChartHelper.convert(data: hkService.stepData))
-                        StepPieChart(chartData: ChartHelper.averageWeekdayCount(for: hkService.stepData))
+                        StepBarChart(chartData: ChartHelper.convert(data: hkData.steps))
+                        StepPieChart(chartData: ChartHelper.averageWeekdayCount(for: hkData.steps))
                     case .weight:
-                        WeightLineChart(chartData: ChartHelper.convert(data: hkService.weightData))
-                        WeightDiffBarChart(chartData: ChartHelper.averageDailyWeightDiffs(for: hkService.weightDiffData))
+                        WeightLineChart(chartData: ChartHelper.convert(data: hkData.weights))
+                        WeightDiffBarChart(chartData: ChartHelper.averageDailyWeightDiffs(for: hkData.weightDiffs))
                     }
                 }
             }
@@ -69,9 +69,9 @@ struct DashboardView: View {
                 async let weights = hkService.fetchWeights(daysBack: 28)
                 async let weightDiffs = hkService.fetchWeights(daysBack: 29)
                 
-                hkService.stepData = try await steps
-                hkService.weightData = try await weights
-                hkService.weightDiffData = try await weightDiffs
+                hkData.steps = try await steps
+                hkData.weights = try await weights
+                hkData.weightDiffs = try await weightDiffs
                 
             } catch STError.authNotDetermined {
                 showingPrimer = true
