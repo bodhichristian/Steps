@@ -58,7 +58,6 @@ struct DashboardView: View {
                 HKPermissionPrimerView()
             }
             .tint(selectedStat == .steps ? .pink : .indigo)
-            
         }
     }
     
