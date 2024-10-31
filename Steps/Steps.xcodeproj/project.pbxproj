@@ -32,9 +32,6 @@
 		AAD46E922C654185005F7B8A /* StepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46E912C654185005F7B8A /* StepsApp.swift */; };
 		AAD46E962C654186005F7B8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD46E952C654186005F7B8A /* Assets.xcassets */; };
 		AAD46E992C654186005F7B8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD46E982C654186005F7B8A /* Preview Assets.xcassets */; };
-		AAD46EA32C654187005F7B8A /* StepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EA22C654187005F7B8A /* StepsTests.swift */; };
-		AAD46EAD2C654187005F7B8A /* StepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EAC2C654187005F7B8A /* StepsUITests.swift */; };
-		AAD46EAF2C654187005F7B8A /* StepsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */; };
 		AAFC01F92C6D04B4002A2820 /* StepPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,10 +80,7 @@
 		AAD46E952C654186005F7B8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAD46E982C654186005F7B8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAD46E9E2C654187005F7B8A /* StepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAD46EA22C654187005F7B8A /* StepsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsTests.swift; sourceTree = "<group>"; };
 		AAD46EA82C654187005F7B8A /* StepsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAD46EAC2C654187005F7B8A /* StepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITests.swift; sourceTree = "<group>"; };
-		AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AAFC01F82C6D04B4002A2820 /* StepPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,8 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				AAD46E902C654185005F7B8A /* Steps */,
-				AAD46EA12C654187005F7B8A /* StepsTests */,
-				AAD46EAB2C654187005F7B8A /* StepsUITests */,
 				AAD46E8F2C654185005F7B8A /* Products */,
 				AA1DB0432C65431200C41F37 /* Frameworks */,
 			);
@@ -255,23 +247,6 @@
 				AAD46E982C654186005F7B8A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		AAD46EA12C654187005F7B8A /* StepsTests */ = {
-			isa = PBXGroup;
-			children = (
-				AAD46EA22C654187005F7B8A /* StepsTests.swift */,
-			);
-			path = StepsTests;
-			sourceTree = "<group>";
-		};
-		AAD46EAB2C654187005F7B8A /* StepsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AAD46EAC2C654187005F7B8A /* StepsUITests.swift */,
-				AAD46EAE2C654187005F7B8A /* StepsUITestsLaunchTests.swift */,
-			);
-			path = StepsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,7 +415,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD46EA32C654187005F7B8A /* StepsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,8 +422,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD46EAF2C654187005F7B8A /* StepsUITestsLaunchTests.swift in Sources */,
-				AAD46EAD2C654187005F7B8A /* StepsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,7 +631,6 @@
 		AAD46EB62C654187005F7B8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -679,7 +650,6 @@
 		AAD46EB72C654187005F7B8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -699,7 +669,6 @@
 		AAD46EB92C654187005F7B8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
@@ -717,7 +686,6 @@
 		AAD46EBA2C654187005F7B8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
