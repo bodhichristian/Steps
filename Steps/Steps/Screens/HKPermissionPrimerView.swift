@@ -57,11 +57,14 @@ struct HKPermissionPrimerView: View {
             trigger: requestingPermission) { result in
                 switch result {
                 case .success/*(let success)*/:
-                    dismiss()
+                    Task { @MainActor in
+                        dismiss()
+                    }
                 case .failure/*(let failure)*/:
                     // handle error
-                    
-                    dismiss()
+                    Task { @MainActor in
+                        dismiss()
+                    }
                 }
             }
     }

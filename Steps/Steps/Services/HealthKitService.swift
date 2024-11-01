@@ -9,16 +9,21 @@ import Foundation
 import HealthKit
 import Observation
 
+@MainActor
 @Observable
-class HealthKitService {
+final class HealthKitData: Sendable {
+    var steps: [HealthMetric] = []
+    var weights: [HealthMetric] = []
+    var weightDiffs: [HealthMetric] = []
+}
+
+@MainActor
+@Observable
+final class HealthKitService {
     
     let store = HKHealthStore()
     
     let types: Set = [HKQuantityType(.stepCount), HKQuantityType(.bodyMass)]
-    
-    var stepData: [HealthMetric] = []
-    var weightData: [HealthMetric] = []
-    var weightDiffData: [HealthMetric] = []
     
     /// Add pre-defined mock data to HealthKit on the Simulator
     func addSampleData() async {
@@ -116,6 +121,7 @@ class HealthKitService {
         
         return .init(start: startDate, end: endDate)
     }
+    
     /// Fetch last 28 days of step count from HealthKit
     ///
     /// Further description
